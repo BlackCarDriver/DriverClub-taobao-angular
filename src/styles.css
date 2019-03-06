@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+    min-width:350px;
+}
+a{
+    display:inline-block;
+}
+a:hover{
+    cursor: pointer;
+    text-decoration : none ;
+}
 .norad{
     border-radius: 0px;
 }
@@ -19,18 +29,31 @@
 .marright{
     margin-right: 30px;
 }
+.marbotn{
+    margin-bottom: 10px;
+}
+.martop{
+    margin-top: 10px;
+}
 .green{
-    background-color: green;
+    background-color: rgb(196, 207, 196);
 }
 .yellow{
-    background-color: yellow;
+    background-color: rgb(110, 110, 89);
 }
 .h150px{
     height: 150px;
 }
 .blue{
-    background-color: darkcyan;
+    background-color: rgb(156, 160, 160);
 }
 .alicen{
     text-align: center;
+}
+.margin1{
+    margin:5px 15px;
+    line-height: 15px;
+}
+.heifull{
+    height: 100%;
 }
