@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 html{
     min-width:350px;
+    color: #222;
+    font: 14px/1.5 tahoma,arial,"Microsoft YaHei";
+    background: #fff;
+    margin: 0px;
+    padding: 0px;
 }
 a{
     display:inline-block;
@@ -56,4 +61,8 @@ a:hover{
 }
 .heifull{
     height: 100%;
+}
+.pad0px{
+    padding-right: 0px;
+    padding-left: 0px;
 }
