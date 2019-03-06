@@ -1,0 +1,37 @@
+.search-div{
+    background-color: aquamarine;
+    height: 150px;
+}
+.seach-box{
+    position: absolute;
+    bottom: 10%;
+    left: 25%;
+    width: 50%;
+    margin: 5px;
+    padding: 1px;
+}
+.inputbox{
+    width: 80%;
+    font-size: 15px;
+    height: 35px;
+    line-height: 35px;
+    border: 3px solid orange;
+    margin: 0px;
+    text-indent: 10px;
+    border-radius: 4px 0px 0px 4px;
+}
+.inputbtn{
+    width:19%;
+    height: 35px;
+    border: 3px solid orange;
+    margin-left:1px;
+    border-radius: 0px 4px 4px 0px;
+    padding: 2px;
+}
+
+.goodtype{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    background-color: darkgray;
+}

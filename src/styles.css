@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+.norad{
+    border-radius: 0px;
+}
+.nopadtop{
+    padding-top: 0px;
+    margin-top: 0px;
+}
+.nomarbot{
+    margin: 0px;
+}
+.closebot{
+   bottom: 5px;
+   margin-bottom: 5px;
+}
+.nav-chose{
+    border-bottom: 7px solid #17a2e7;
+}
+.marright{
+    margin-right: 30px;
+}
+.green{
+    background-color: green;
+}
+.yellow{
+    background-color: yellow;
+}
+.h150px{
+    height: 150px;
+}
+.blue{
+    background-color: darkcyan;
+}
+.alicen{
+    text-align: center;
+}
