@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import * as $ from 'jquery';
 
 @Component({
   selector: 'app-homepage',
@@ -12,4 +13,11 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
   }
 
+  collapse(id:string){
+    $(".collapse").collapse('hide');
+    $(id).collapse('show');
+  }
+  showsinginbox(){
+    $("#exampleModal").modal('show');
+  }
 }

@@ -1,3 +1,16 @@
+#singin{
+    background: #ff411c;
+    border-radius: 20px;
+    color: #fff;
+    line-height: 24px;
+    padding: 2px 0;
+    margin-top: 12px;
+    margin-left: 10px;
+    padding: 2px 20px 0 20px;
+}
+#singin:hover {
+    background: #fe6000;
+}
 .search-div{
     background-color: aquamarine;
     height: 150px;
@@ -52,6 +65,8 @@
 }
 .goods-area{
     padding: 5px;
+    box-shadow: 0 0 20px rgba(50,50,50,0.1);
+    background-color: #fff;
 }
 .goodrow{
     margin:5px;
@@ -59,10 +74,11 @@
     margin-bottom: 10px;
 }
 .goods-box{
+    float: left;
     max-width: 300px;
     padding: 4px 10px;
     text-align: center;
-    margin-bottom: 20px;
+    margin: 1px auto 20px auto;
 }
 .goods-box2{
     height: 268px; 
