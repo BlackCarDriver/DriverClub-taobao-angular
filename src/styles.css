@@ -10,6 +10,85 @@ html{
 body {
     font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;
 }
+img{
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+/* ==========================收藏样式============================ */
+.inlink{
+    display: inline-block;
+}
+.checkbox1{
+    margin-right:5px;
+    width:15px;
+    height: 15px;
+    display: inline-block;
+}
+
+.inputbox{
+    padding-left: 10px;
+    color: #333333;
+    width: 220px;
+    height: 30px;
+    border: 0;
+    border-bottom: 1px solid #cccccc;
+    border-top: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    background-color: rgb(250, 255, 189);
+    margin-left: 10px;
+}
+.inputbox:focus{
+    border: 1px solid dodgerblue;
+    box-shadow: 0px 0px 4px dodgerblue;
+}
+.inputbtn{
+    width: 60px;
+    height: 32px;
+    border: 1px solid rgb(128, 121, 110);
+    margin-left:1px;
+    border-radius: 0px 4px 4px 0px;
+    padding: 2px;
+}
+
+.loginbutton{
+    width: 280px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 10px;
+    background-color: dodgerblue;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    margin: 0 auto;
+    color: white;
+}
+.floatcenter{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.floatright{
+    margin-right: 50px;
+    float: right;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+
+/* ============================================== */
+
+
+
+
+
+
 .head{
     border-bottom: 1px solid #303030;
     color: #aaa;

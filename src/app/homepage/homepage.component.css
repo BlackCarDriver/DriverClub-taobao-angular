@@ -16,30 +16,11 @@
     height: 150px;
 }
 .seach-box{
-    position: absolute;
-    bottom: 10%;
-    left: 25%;
-    width: 50%;
-    margin: 5px;
-    padding: 1px;
-}
-.inputbox{
-    width: 80%;
-    font-size: 15px;
-    height: 35px;
-    line-height: 35px;
-    border: 3px solid rgb(143, 131, 108);
-    margin: 0px;
-    text-indent: 10px;
-    border-radius: 4px 0px 0px 4px;
-}
-.inputbtn{
-    width:19%;
-    height: 35px;
-    border: 3px solid rgb(143, 131, 108);
-    margin-left:1px;
-    border-radius: 0px 4px 4px 0px;
-    padding: 2px;
+    position: relative;
+    bottom: 50px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .goodtype{
@@ -103,12 +84,14 @@
 }
 .good-user{
     float: left;
-    margin-left: 10px;
+    margin-left: 0px;
     margin-bottom: 4px;
+    width: 130px;
+    overflow: hidden;
 }
 .good-date{
     float: right;
-    margin-right: 10px;
+    margin-right: 0px;
     margin-bottom:4px;
 }
 .good-price{
@@ -124,10 +107,158 @@
 }
 .clearfix{
     background: #313131;
-    padding: 20px 0;
+    padding: 20px 0px 0px 0px;
     margin-top: 35px;
     width: 100%;
     text-align: center;
     color: #aaa;
     font-size: 14px;
 }
+.login-center {
+    width: 400px;
+    box-sizing: border-box;
+    padding: 0 40px;
+    margin: 20px 10px 10px 20px;
+}
+
+
+.checkbox1{
+    margin-right:5px;
+    width:15px;
+    height: 15px;
+    display: inline-block;
+}
+.taller{
+    position: relative;
+    bottom: 3px;
+}
+.emailbox{
+    width:190px;
+    margin-right: 5px;
+}
+/* =================================== 公用样式 */
+.nopad{
+    padding: 0px; 
+    text-align: center;
+}
+
+/* ==================================================用户信息下拉框 */
+.user{
+    width: 188px;
+    background-color: #97b9d3;
+    text-align: center;
+    padding: 5px 0px 5px 0px;
+}
+.headimg{
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    border-radius: 95px;
+    background-color: #222b33;
+}
+.user h4{
+    color: #44484b;
+    margin: 3px auto;
+}
+.mesage{
+    width: 180px;
+    height: 175px;
+    margin: auto;
+    background: darkgoldenrod;
+}
+.mesage dt{
+    float: left;
+    margin:3px 3px 3px 6px;
+    font-size: larger;
+}
+.mesage dt span{
+    color: #3b3532;
+}
+#seeting{
+    float: left;
+    color: red;
+}
+
+/* =============================================淘宝翻页框 */
+.m-page {
+    position: relative;
+    margin-top: 20px;
+    padding: 10px 0;
+}
+.m-page .wraper {
+    display: block;
+    float: left;
+    margin-left: 50%;
+}
+.m-page .inner {
+    float: left;
+    margin-left: -50%;
+}
+.m-page .active, .m-page .active:hover {
+    position: relative;
+    background: #f40;
+    color: #fff;
+    border-color: #f40;
+    cursor: default;
+}
+.m-page a:focus, .m-page a:hover {
+    color: #f40;
+}
+.m-page .items {
+    float: left;
+}
+.m-page .item {
+    position: relative;
+    float: left;
+    margin-left: 3px;
+    width: 35px;
+    border: solid 1px #ededed;
+    height: 35px;
+    color: #3e3e3e;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+} 
+.m-page .next, .m-page .prev {
+    width: 70px;
+    font-weight: 400;
+}
+.m-page .item .num {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-size: 14px;
+}
+.m-page .total {
+    margin-left: 10px;
+    margin-right: 10px;
+    float: left;
+    line-height: 37px;
+}
+.m-page .form {
+    float: left;
+}
+.m-page .text {
+    float: left;
+    line-height: 37px;
+}
+.m-page .input {
+    width: 40px;
+    border: solid 1px #ededed;
+    height: 21px;
+    text-align: center;
+    margin-top: 7px;
+    float: left;
+    color: #999;
+}
+.m-page .btn {
+    height: 21px;
+    width: 43px;
+    border-radius: 2px;
+    border: solid 1px #ededed;
+    text-align: center;
+    line-height: 21px;
+    margin-top: 4px;
+    padding: 1px;
+}
+/* ==================================================== */
