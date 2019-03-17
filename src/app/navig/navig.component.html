@@ -1,0 +1,132 @@
+<nav class="navbar navbar-inverse head nomarbot">
+  <a class="navbar-brand marright" href="#">
+      <span class="glyphicon glyphicon-globe " aria-hidden="true"></span>
+       BlackCarDriver.cn
+  </a>
+  <div class="container-fluid"> 
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+          <li><a class="navbar-brand nav-chose" href="#">交易区</a></li>
+          <li><a class="navbar-brand" href="#">拍卖区</a></li>
+          <li><a class="navbar-brand" href="#">讨论区</a></li>
+      </ul> 
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">意见反馈</a></li>
+          <li><a href="#">关于本站</a></li> 
+          <li><a href="#" id="singin" (click)="showsinginbox()">登录/注册</a></li> 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-user"></span>黑车司机<span class="caret"></span>
+          </a>
+          
+          <ul class="dropdown-menu nopad">
+              <div class="user">
+                  <div class="headimg"></div>
+                  <h4>BlackCarDriver</h4>
+                  <div class="mesage">
+                     <dl>
+                         <dt>我的等级：<a class="link">4</a></dt>
+                         <dt>我的商品：<a class="link">4</a></dt>
+                         <dt>我的收藏：<a class="link">4</a></dt>
+                         <dt>我的消息：<a class="link">5</a></dt>
+                         <dt>贡献值：  <a>115</a></dt>
+                     </dl>
+                  </div>
+                  <a class="link">账号设置</a>
+              </div>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<!--模态框-->
+<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div>
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">登录</a></li>
+                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">注册</a></li>
+              </ul>
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home"><!--singin tagbox-->
+                  <h3 style="margin-left:160px">登录</h3>
+                  <div class="login-center">
+                    <div class="login-center-input">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <input class="inputbox" type="text" name="" value="" placeholder="请输入您的用户名" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'">              
+                    </div>
+                  </div>
+                  <div class="login-center">
+                    <div class="login-center-input">
+                        <span class="glyphicon glyphicon-lock"></span>
+                        <input type="password" class="inputbox" name="" value="" placeholder="请输入您的密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'">
+                    </div>
+                  </div>
+                  <div class="login-center">
+                    <input class="checkbox1" type="checkbox" name="remember" ><span class="taller">记住密码</span>
+                    <span><a class="floatright">忘记密码</a></span><br>
+                    <button type="button" class="loginbutton">登录</button>
+                    
+                    <!-- <button type="button" class="btn btn-primary" data-dismiss="modal">返回</button> -->
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="profile"> <!--注册 tagbox-->
+                    <h3 style="margin-left:160px">注册</h3>
+                    <div class="login-center">
+                      <div class="login-center-input">
+                          <span class="glyphicon glyphicon-user"></span>
+                          <input class="inputbox" type="text" name="" value="" placeholder="账号名字" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'">              
+                      </div>
+                    </div>
+                    <div class="login-center">
+                    <div class="login-center-input">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <input class="inputbox" type="text" name="" value="" placeholder="账号密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'">              
+                    </div>
+                    </div>
+                    <div class="login-center">
+                        <div class="login-center-input">
+                            <span class="glyphicon glyphicon-lock"></span>
+                            <input type="password" class="inputbox" name="" value="" placeholder="确认账号密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'">
+                      </div>
+                      </div>
+                      <div class="login-center">
+                          <div class="login-center-input">
+                              <span class="glyphicon glyphicon-lock"></span>
+                              <input class="inputbox emailbox" name="" value="" placeholder="验证邮箱" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'">
+                              <span><a>获取邮件</a></span>
+                            </div>
+                      </div>
+                      <div class="login-center">
+                          <div class="login-center-input">
+                              <span class="glyphicon glyphicon-lock"></span>
+                              <input class="inputbox" name="" value="" placeholder="验证码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'">
+                          </div>
+                      </div>
+                      <div class="login-center">
+                        <button type="button" class="loginbutton">登录</button>
+                      </div>
+                   
+                </div>
+              </div>
+            </div>
+            
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--模态框结束-->

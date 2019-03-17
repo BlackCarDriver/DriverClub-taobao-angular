@@ -24,8 +24,11 @@
             ],
             "styles": [
               "src/styles.css"
+			  
             ],
-            "scripts": []
+            "scripts": [
+				
+			      ]
           },
           "configurations": {
             "production": {
@@ -79,9 +82,12 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "bootstrap/bootstrap.min.css"
             ],
             "scripts": [
+              "bootstrap/bootstrap.min.js",
+              "jquery.min.js"
             ],
             "assets": [
               "src/favicon.ico",

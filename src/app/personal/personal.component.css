@@ -1,0 +1,22 @@
+.container-fluid{
+    margin: 20px 5%;
+}
+.main-body{
+    padding:5px;
+    background-color: #eae2d7;
+}
+.msg1{
+    height: 140px;
+    margin: 6px 0px;
+}
+.msg2{
+    height: 40px;
+    margin: 3px;
+}
+.right_box{
+    height: 100%;
+}
+.swicth-box{
+    margin: 0px 20px;
+}
+/* ===================== 临时样式 */

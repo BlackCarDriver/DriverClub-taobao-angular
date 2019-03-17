@@ -1,0 +1,78 @@
+/* ==================================================用户信息下拉框 */
+.user{
+    width: 188px;
+    background-color: #97b9d3;
+    text-align: center;
+    padding: 5px 0px 5px 0px;
+}
+.headimg{
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    border-radius: 95px;
+    background-color: #222b33;
+}
+.user h4{
+    color: #44484b;
+    margin: 3px auto;
+}
+.mesage{
+    width: 180px;
+    height: 175px;
+    margin: auto;
+    background: darkgoldenrod;
+}
+.mesage dt{
+    float: left;
+    margin:3px 3px 3px 6px;
+    font-size: larger;
+}
+.mesage dt span{
+    color: #3b3532;
+}
+#seeting{
+    float: left;
+    color: red;
+}
+.dropddown{
+    transition: display 2s;
+}
+
+.dropdown-menu {
+    padding: 0px;
+    overflow: hidden;
+}
+
+/* =================================================注册登录框 */
+
+.clearfix{
+    background: #313131;
+    padding: 20px 0px 0px 0px;
+    margin-top: 35px;
+    width: 100%;
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+}
+.login-center {
+    width: 400px;
+    box-sizing: border-box;
+    padding: 0 40px;
+    margin: 20px 10px 10px 20px;
+}
+
+
+.checkbox1{
+    margin-right:5px;
+    width:15px;
+    height: 15px;
+    display: inline-block;
+}
+.taller{
+    position: relative;
+    bottom: 3px;
+}
+.emailbox{
+    width:190px;
+    margin-right: 5px;
+}
