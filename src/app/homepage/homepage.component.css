@@ -135,6 +135,7 @@
     border-color: #f40;
     cursor: default;
 }
+
 .m-page a:focus, .m-page a:hover {
     color: #f40;
 }

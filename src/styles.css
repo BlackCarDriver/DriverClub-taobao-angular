@@ -3,11 +3,12 @@ html{
     min-width:350px;
     color: #222;
     font: 14px/1.5 tahoma,arial,"Microsoft YaHei";
-    background: #fff;
+    background-color: #f5f6f7;
     margin: 0px;
     padding: 0px;
 }
 body {
+    background-color: #f3f3f3;
     font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;
 }
 img{

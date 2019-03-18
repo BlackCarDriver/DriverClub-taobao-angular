@@ -1,17 +1,42 @@
 .container-fluid{
     margin: 20px 5%;
 }
+.full{
+    padding-top: 20px;
+    margin:0px;
+    background-color:#f3f3f3;
+}
 .main-body{
-    padding:5px;
-    background-color: #eae2d7;
+    margin: 0 15px;
+    background-color: #fff;
+    border: 2px solid #e6e6e6;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+
 }
 .msg1{
     height: 140px;
     margin: 6px 0px;
+    border-bottom: 1px solid #cac8c8;
+}
+.msg1 .head-img-box{
+    text-align: center;
+}
+.msg1 .head-img{
+    height: 120px;
+    width: 120px;
+    border-radius: 120px;
+    margin: 10px auto;
+    border: 1px solid #e6e6e6;
 }
 .msg2{
     height: 40px;
     margin: 3px;
+    /* border-bottom: 1px solid #cac8c8; */
+}
+.left-box{
+    border-right: 1px solid #e6e6e6;
 }
 .right_box{
     height: 100%;
@@ -19,4 +44,83 @@
 .swicth-box{
     margin: 0px 20px;
 }
+
+.right-box-son{
+    min-height: 30px;
+    margin: 10px 15px;
+    border-bottom: 1px solid #e6e6e6;
+}
+.see-num{
+    color:#428bca;
+    font-weight: 600;
+}
 /* ===================== 临时样式 */
+.heigth{
+    height: 100%;
+}
+
+/* ======================公用样式 */
+.button1{
+    width: 60px;
+    height: 30px;
+    margin: 5px 10px;
+}
+.ico1{
+    margin-left: 25px;
+    float: left;
+    margin-top: 10px;
+    color: #877b7b;
+}
+.float-left-blue{
+    color:#428bca;
+    float:left;
+    padding-left: 0px;
+    padding-right: 0px; 
+}
+.float-right-blue{
+    color:#428bca;
+    float: right;
+    text-align: right;
+}
+.mun-ico{
+    display: inline-block;
+    padding: 2px 6px;
+    background: #ccc;
+    background-color: rgb(204, 204, 204);
+    background-color: rgb(204, 204, 204);
+    min-width: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #7f9495;
+    border-radius: 10px;
+    line-height: 1;
+}
+.headimg-list{
+    float: left;
+    padding: 4px;
+    margin-top: 6px;
+}
+.headimg-list .headimg{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    margin: 4px;
+    border-radius: 55px;
+    margin: 2px;;
+    border: 1px solid rgb(247, 239, 239);
+    /* background-color: rgb(145, 91, 91); */
+    display: inline-block;
+}
+
+.my-panel{
+    margin: 20px;
+}
+
+.tab-pane:focus{
+  outline: none;
+}
+.msg-box{
+    margin: 1px;
+    padding-left: 10px;
+}
