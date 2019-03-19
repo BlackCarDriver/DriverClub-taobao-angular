@@ -6,6 +6,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { PersonalComponent } from './personal/personal.component';
 import { NavigComponent } from './navig/navig.component';
 import { FooterComponent } from './footer/footer.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

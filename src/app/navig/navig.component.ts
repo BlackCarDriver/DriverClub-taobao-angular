@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+// Property 'collapse' does not exist on type 'JQuery<HTMLElement>'....
+import * as bootstrap from 'bootstrap';
+// import * as $ from 'jquery';
+declare var $ :any; 
 
 @Component({
   selector: 'app-navig',

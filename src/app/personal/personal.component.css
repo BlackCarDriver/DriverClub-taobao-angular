@@ -123,4 +123,13 @@
 .msg-box{
     margin: 1px;
     padding-left: 10px;
+    margin-top: 4px;
+}
+.msg{
+    font-weight: 500;
+    color: #555;
+}
+.describ{
+    font-weight: 600;
+    color: #337ab7;
 }
