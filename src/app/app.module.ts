@@ -7,6 +7,7 @@ import { PersonalComponent } from './personal/personal.component';
 import { NavigComponent } from './navig/navig.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ChgmymsgComponent } from './chgmymsg/chgmymsg.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
     HomepageComponent,
     PersonalComponent,
     NavigComponent,
-    FooterComponent
+    FooterComponent,
+    ChgmymsgComponent
   ],
   imports: [
     BrowserModule,
