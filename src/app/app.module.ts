@@ -8,6 +8,7 @@ import { NavigComponent } from './navig/navig.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ChgmymsgComponent } from './chgmymsg/chgmymsg.component';
+import { UploadgoodsComponent } from './uploadgoods/uploadgoods.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ChgmymsgComponent } from './chgmymsg/chgmymsg.component';
     PersonalComponent,
     NavigComponent,
     FooterComponent,
-    ChgmymsgComponent
+    ChgmymsgComponent,
+    UploadgoodsComponent
   ],
   imports: [
     BrowserModule,

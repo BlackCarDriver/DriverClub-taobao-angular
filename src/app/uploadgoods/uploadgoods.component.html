@@ -1,0 +1,95 @@
+<app-navig></app-navig>
+<div class="container">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Library</a></li>
+            <li class="active">上传商品</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="row   mainbody">
+            <!--预览效果-->
+            <div class="col-md-6">
+                    <span class="label  label-primary yulan">预览效果</span>
+                    <div class="goods-box">
+                        <img class="img-thumbnail" src="http://img2.chinadaily.com.cn/images/201903/27/5c9ac98aa3104842e4a5bb73.jpeg">
+                        <p class="good-title">发大沙发斯蒂芬大丰收爱迪生发大厦</p>
+                            <a class="good-user"><span class="glyphicon glyphicon-user"></span> BlackCarDriver</a>
+                            <p class="good-date"><span class="glyphicon glyphicon-calendar"></span>2019-3-3</p>
+                            <p class="good-price"><span class="glyphicon glyphicon-yen"></span>65</p>
+                    </div><!--goods-box2 end-->              
+            </div>
+            <!--封面设置-->
+            <div class="col-md-6 h260px">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">基本设置</div>
+                     <dl class="setting-box">
+                                    <dt>封面标题</dt>
+                                    <dd><input type="text" id="title"></dd>
+                                    <dt>出售价格</dt>
+                                    <dd><input type="text" class="price"></dd>
+                                    <dt>
+                                        <div class="btn-group">
+                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              物品分类 <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">分类1</a></li>
+                                                <li><a href="#">分类2</a></li>
+                                                <li><a href="#">分类3</a></li>
+                                            </ul>
+                                        </div><!--btn-group-->
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            物品标签 <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">分类1</a></li>
+                                                <li><a href="#">分类2</a></li>
+                                                <li><a href="#">分类3</a></li>
+                                            </ul>
+                                        </div><!--btn-group-->
+                                    </dt>
+                                    <dt>
+                                    <input type="file" class="hidden" id="upload">
+                                    <button class="btn btn-default">选择封面</button>
+                                    </dt>
+                     </dl>
+                    </div><!--pannel-->  
+                </div>
+            </div>
+        </div>
+        <!--规则说明-->
+        <div class="col-md-5 ">
+            <div class="panel panel-default">
+                <div class="panel-heading"><span class="glyphicon glyphicon-pushpin"></span>上传规则</div>
+                <div class="panel-body ">
+                    <ul class="list-group">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                </div>
+                </div>
+        </div>
+    </div>
+    
+    <div class="row editer">
+        <div id="summernote"></div>
+    </div>
+    <!--提交行-->
+    <div class="row">
+        <span id="uploadcheck">
+            <input  type="checkbox" name="checkbox1" value="checkbox">
+            我已了解并同意上传规则
+        </span>
+    </div>
+    <div class="row upload_row">
+        <button type="button" id="uploadbtn" class="btn btn-info">上传商品</button>
+    </div>
+</div>
+<app-footer></app-footer>
