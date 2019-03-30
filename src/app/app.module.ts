@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ChgmymsgComponent } from './chgmymsg/chgmymsg.component';
 import { UploadgoodsComponent } from './uploadgoods/uploadgoods.component';
 import { GoodspageComponent } from './goodspage/goodspage.component';
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { GoodspageComponent } from './goodspage/goodspage.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
