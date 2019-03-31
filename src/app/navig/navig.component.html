@@ -14,36 +14,37 @@
     </div>
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-          <li><a class="navbar-brand nav-chose" href="#">交易区</a></li>
-          <li><a class="navbar-brand" routerLink="/goodsdetail">拍卖区</a></li>
+          <li><a class="navbar-brand nav-chose">交易区</a></li>
           <li><a class="navbar-brand" routerLink="/uploadgoods">讨论区</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
           <li><a routerLink="/changemsg"> 意见反馈</a></li>
-          <li><a routerLink="/personal">关于本站</a></li> 
+          <li><a routerLink="/about">关于本站</a></li> 
           <li><a id="singin" (click)="showsinginbox()">登录/注册</a></li> 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="user-toggle">
             <span class="glyphicon glyphicon-user"></span>黑车司机<span class="caret"></span>
           </a>
           
-          <ul class="dropdown-menu nopad">
+          <ul class="dropdown-menu nopad"  id="shortmsg">
               <div class="user">
                   <div class="headimg"></div>
                   <h4>BlackCarDriver</h4>
                   <div class="mesage">
                      <dl>
-                         <dt>我的等级：<a class="link">4</a></dt>
-                         <dt>我的商品：<a class="link">4</a></dt>
-                         <dt>我的收藏：<a class="link">4</a></dt>
-                         <dt>我的消息：<a class="link">5</a></dt>
-                         <dt>贡献值：  <a>115</a></dt>
+                         <dt>我的等级：<a class="msgval">4</a></dt>
+                         <dt>我的积分：<a class="msgval">115</a></dt>
+                         <dt>我的消息：<a class="msgval">5</a></dt>
+                         <dt>我的商品：<a class="msgval">4</a></dt>
+                         <dt>我的收藏：<a class="msgval">4</a></dt>
                      </dl>
                   </div>
-                  <a class="link">账号设置</a>
+                  <a><span class="glyphicon glyphicon-cog"></span> 账号设置</a>
               </div>
           </ul>
+          
         </li>
+        
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -53,13 +54,14 @@
 <!--模态框-->
 <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog " role="document">
-    <div class="modal-content">
+    <div class="modal-content sethigth">
       <div class="modal-body">
           <div>
               <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">登录</a></li>
                 <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">注册</a></li>
               </ul>
+              
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="home"><!--singin tagbox-->
                   <h3 style="margin-left:160px">登录</h3>
@@ -88,13 +90,13 @@
                     <div class="login-center">
                       <div class="login-center-input">
                           <span class="glyphicon glyphicon-user"></span>
-                          <input class="inputbox" type="text" name="" value="" placeholder="账号名字" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'">              
+                          <input class="inputbox" type="text" name="" value="" placeholder="设置你的账号名字" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'">              
                       </div>
                     </div>
                     <div class="login-center">
                     <div class="login-center-input">
-                        <span class="glyphicon glyphicon-user"></span>
-                        <input class="inputbox" type="text" name="" value="" placeholder="账号密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'">              
+                        <span class="glyphicon glyphicon-lock"></span>
+                        <input class="inputbox" type="text" name="" value="" placeholder="设置你的账号密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'">              
                     </div>
                     </div>
                     <div class="login-center">
@@ -105,15 +107,15 @@
                       </div>
                       <div class="login-center">
                           <div class="login-center-input">
-                              <span class="glyphicon glyphicon-lock"></span>
-                              <input class="inputbox emailbox" name="" value="" placeholder="验证邮箱" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'">
+                              <span class="glyphicon glyphicon-envelope"></span>
+                              <input class="inputbox emailbox" name="" value="" placeholder="输入验证邮箱" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'">
                               <span><a>获取邮件</a></span>
                             </div>
                       </div>
                       <div class="login-center">
                           <div class="login-center-input">
-                              <span class="glyphicon glyphicon-lock"></span>
-                              <input class="inputbox" name="" value="" placeholder="验证码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'">
+                              <span class="glyphicon glyphicon-ok-circle"></span>
+                              <input class="inputbox" name="" value="" placeholder="输入验证码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'">
                           </div>
                       </div>
                       <div class="login-center">

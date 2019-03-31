@@ -14,13 +14,17 @@ export class NavigComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    //hide or show the short-msg when click the owner name
+    $("#user-toggle").click(function(){
+      $("#shortmsg").dropdown('toggle');
+    })
   }
 
-  collapse(id:string){
-    $(".collapse").collapse('hide');
-    $(id).collapse('show');
-  }
+
+
+  //show sing/regist box when click singin/reginst
   showsinginbox(){
     $("#exampleModal").modal('show');
   }
+
 }

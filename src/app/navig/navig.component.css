@@ -1,9 +1,9 @@
 /* ==================================================用户信息下拉框 */
 .user{
     width: 188px;
-    background-color: #97b9d3;
+    background-color: rgb(245, 245, 245);
     text-align: center;
-    padding: 5px 0px 5px 0px;
+    padding: 10px 0px 5px 0px;
 }
 .headimg{
     width: 60px;
@@ -18,14 +18,23 @@
 }
 .mesage{
     width: 180px;
-    height: 175px;
-    margin: auto;
-    background: darkgoldenrod;
+    height: 140px;
+    margin: 10px 0px;
+    background: #f5f5f5;
+    margin: 15px 0px 0px 0px;
+}
+.msgval{
+    font-weight: 600;
+    padding-left:15px;
 }
 .mesage dt{
-    float: left;
-    margin:3px 3px 3px 6px;
-    font-size: larger;
+    text-align: left;
+    margin: 3px 5px 3px 5px;
+    font-size: 1.1em;
+    border-bottom: 1px solid #337ab7;
+    width: 100%;
+    font-weight: 500;
+    color: #777;
 }
 .mesage dt span{
     color: #3b3532;
@@ -44,7 +53,10 @@
 }
 
 /* =================================================注册登录框 */
-
+.sethigth{
+    width: 450px;
+    padding-bottom: 20px;
+}
 .clearfix{
     background: #313131;
     padding: 20px 0px 0px 0px;
@@ -60,7 +72,13 @@
     padding: 0 40px;
     margin: 20px 10px 10px 20px;
 }
-
+.inputbox{
+    height: 30px;
+    width: 260px;
+    border: 1px solid #337ab7;
+    border-radius: 2px;
+    margin-left: 10px;
+}
 
 .checkbox1{
     margin-right:5px;
@@ -76,3 +94,4 @@
     width:190px;
     margin-right: 5px;
 }
+

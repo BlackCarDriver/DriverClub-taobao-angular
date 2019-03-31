@@ -11,6 +11,7 @@ import { ChgmymsgComponent } from './chgmymsg/chgmymsg.component';
 import { UploadgoodsComponent } from './uploadgoods/uploadgoods.component';
 import { GoodspageComponent } from './goodspage/goodspage.component';
 import { HttpClientModule }    from '@angular/common/http';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule }    from '@angular/common/http';
     FooterComponent,
     ChgmymsgComponent,
     UploadgoodsComponent,
-    GoodspageComponent
+    GoodspageComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
