@@ -16,48 +16,75 @@
 
     <div class="row"><!--type of goods-->
         <div class="goodtype">
-            <a class="typelink" data-toggle="collapse" (click)="collapse('#collapseExample')">
+            <a class="typelink" data-toggle="collapse" (click)="collapse('#study')">
               学习用品
             </a>
-            <a class="typelink" data-toggle="collapse"  (click)="collapse('#collapseExample2')" >
+            <a class="typelink" data-toggle="collapse"  (click)="collapse('#sport')" >
               体育用品
             </a>
-            <a class="typelink" data-toggle="collapse" (click)="collapse('#collapseExample2')" >
+            <a class="typelink" data-toggle="collapse" (click)="collapse('#daliy')" >
               生活用品
             </a>
-            <a class="typelink" data-toggle="collapse"(click)="collapse('#collapseExample2')" >
+            <a class="typelink" data-toggle="collapse"(click)="collapse('#electri')" >
               电子产品
             </a>
-            <a class="typelink" data-toggle="collapse" (click)="collapse('#collapseExample2')" >
+            <a class="typelink" data-toggle="collapse" (click)="collapse('#diy')" >
               手工diy
             </a>
-            <a class="typelink" data-toggle="collapse"(click)="collapse('#collapseExample2')">
+            <a class="typelink" data-toggle="collapse"(click)="collapse('#virtual')">
               虚拟商品
             </a>
-            <a class="typelink" data-toggle="collapse" (click)="collapse('#collapseExample2')" >
+            <a class="typelink" data-toggle="collapse" (click)="collapse('#other')" >
               其他
             </a>
-            <div class="collapse" id="collapseExample">
+
+            <div class="collapse" id="study" >
               <div class="well well2">
-                 <a  class="margin1">台灯(100)</a>
-                 <a class="margin1">书柜(100)</a>
-                 <a class="margin1">打印机(100)</a>
-                 <a class="margin1">电竞椅(100)</a>
-                 <a  class="margin1">台灯(100)</a>
-                 <a class="margin1">书柜(100)</a>
+                 <a  class="goodstype"  *ngFor="let row of studytype">{{row.name}}({{row.num}})</a>
               </div>
             </div>
-          <div class="collapse" id="collapseExample2">
-            <div class="well well2">
-               <a  class="margin1">排球(100)</a>
-               <a  class="margin1">足球(100)</a>
-               <a  class="margin1">篮球(100)</a>
+            
+            <div class="collapse" id="sport" >
+                <div class="well well2">
+                   <a  class="goodstype"  *ngFor="let row of sporttype">{{row.name}}({{row.num}})</a>
+                </div>
             </div>
-          </div>
+
+            <div class="collapse" id="daliy" >
+                <div class="well well2">
+                   <a  class="goodstype"  *ngFor="let row of daliytype">{{row.name}}({{row.num}})</a>
+                </div>
+            </div>
+
+            <div class="collapse" id="electri" >
+                <div class="well well2">
+                   <a  class="goodstype"  *ngFor="let row of electritype">{{row.name}}({{row.num}})</a>
+                </div>
+            </div>
+            <div class="collapse" id="diy" >
+                <div class="well well2">
+                   <a  class="goodstype"  *ngFor="let row of diytype">{{row.name}}({{row.num}})</a>
+                </div>
+            </div>
+
+            <div class="collapse" id="virtual" >
+                <div class="well well2">
+                   <a  class="goodstype"  *ngFor="let row of virtualtype">{{row.name}}({{row.num}})</a>
+                </div>
+            </div>
+
+            <div class="collapse" id="other" >
+                <div class="well well2">
+                   <a  class="goodstype"  *ngFor="let row of othertype">{{row.name}}({{row.num}})</a>
+                </div>
+            </div>
+
+          
       </div><!--row goodtype is over-->
 
     </div> <!--row type is over-->
-  </div><!--container-fulid is over-->
+
+</div><!--container-fulid is over-->
 
   <div class="container goods-area green martop">
       <div class="row goodrow"><!--goods list-->

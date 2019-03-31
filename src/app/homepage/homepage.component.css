@@ -39,8 +39,8 @@
     border-bottom: 4px solid rgb(106, 146, 207);
 }
 .well2{
-    padding: 10px 20px 10px 20px;
-    background-color: rgb(181, 192, 192);
+    padding: 5px 20px;
+    background-color: #337ab7;
 }
 .goods-area{
     padding: 5px;
@@ -74,7 +74,13 @@
     padding: 0px;
     border-radius: 0px;
 }
-
+.goodstype{
+    margin: 5px 15px;
+    line-height: 15px;
+    color: white;
+    font-weight: 600;
+    font-size: 1em;
+}
 
 .good-title{
     height: 21px;
