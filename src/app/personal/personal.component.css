@@ -1,10 +1,15 @@
 .container-fluid{
     margin: 20px 5%;
 }
+.path .breadcrumb{
+    margin: 0px 0px 5px 30px;
+    padding: 4px;
+}
 .full{
-    padding-top: 20px;
-    margin:0px;
-    background-color:#f3f3f3;
+    margin: 0px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    background-color: #f3f3f3;
 }
 .main-body{
     margin: 0 15px;
@@ -169,7 +174,7 @@
 }
 /* ======================公用样式 */
 .button1{
-    width: 60px;
+    width: 70px;
     height: 30px;
     margin: 5px 10px;
 }

@@ -89,7 +89,7 @@
   <div class="container goods-area green martop">
       <div class="row goodrow"><!--goods list-->
           <div class="goods-box" *ngFor="let goods of goodsarray">
-            <div class="goods-box2">
+            <div class="goods-box2" routerLink="/goodsdetail">
               <img class="img-thumbnail" src={{goods.imgurl}}>
               <div class="row">
                 <p class="good-title">{{goods.title}}</p>

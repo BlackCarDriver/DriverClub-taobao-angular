@@ -2,6 +2,14 @@
 
 <div class="full">
 <div class="container-fluid">
+
+        <div class="row path">
+                <ol class="breadcrumb">
+               <li><a href="#">交易区</a></li>
+                <li class="active">我的主页</li>
+            </ol>
+        </div>
+
     <div class="row main-body">
       <div class="col-md-9 left-box">
             <!--头像 + 名字 + 个性签名 部分-->
@@ -14,7 +22,8 @@
                     <h3 class="name">BlackCarDriver</h3>
                 </div>
                 <div class="col-sm-2">
-                        <a class="btn btn-primary btn-sm button1">编辑</a>
+                        <a class="btn btn-primary btn-sm button1" routerLink="/changemsg">修改信息</a>
+                        <a class="btn btn-info btn-sm button1" routerLink="/uploadgoods">上传商品</a>
                 </div>
             </div><!--msg1-->
          
@@ -43,7 +52,7 @@
               <div class="tab-content">
 
                 <!-- 详细信息tag box -->
-                <div class="tab-pane" id="panel-xxxs">
+                <div class="tab-pane  active" id="panel-xxxs">
                     
                     <!--基本信息 page-->
                     <div class="panel panel-info my-panel">
@@ -216,7 +225,7 @@
                 </div>
 
                 <!--我的消息 tag box-->
-                <div class="tab-pane  active" id="panel-mymsg">
+                <div class="tab-pane" id="panel-mymsg">
 
                     <div class="row mymsg">
                         <div class="col-sm-2 msg-img-box">

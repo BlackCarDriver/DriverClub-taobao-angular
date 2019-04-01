@@ -6,6 +6,7 @@ import { ChgmymsgComponent } from '../app/chgmymsg/chgmymsg.component';
 import { UploadgoodsComponent } from '../app/uploadgoods/uploadgoods.component';
 import { GoodspageComponent } from '../app/goodspage/goodspage.component';
 import {AboutComponent} from '../app/about/about.component';
+import { CharthpComponent  }from '../app/charthp/charthp.component';
 
 import { from } from 'rxjs';
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'uploadgoods' , component: UploadgoodsComponent},
   { path: 'goodsdetail' , component:  GoodspageComponent },
   { path: 'about' , component: AboutComponent},
-  { path: '', redirectTo: 'homepage', pathMatch: 'full' }
+  { path:'chat' ,component: CharthpComponent },
+  { path: '', redirectTo: 'homepage', pathMatch: 'full' },
 ];
 
 
