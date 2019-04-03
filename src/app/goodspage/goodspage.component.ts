@@ -8,10 +8,10 @@ import{ServerService} from'../server.service';
   styleUrls: ['./goodspage.component.css']
 })
 export class GoodspageComponent implements OnInit {
-
-  private data1 : HomePageGoods;
-  private data2 : GoodsState;
-  private data3 : string;
+  //一个类不可以只声明，然后直接用，否则出现undefine error
+  data1 = new HomePageGoods;
+  data2 = new GoodsState;
+  data3 = "";
 
   constructor(private server : ServerService) { }
   ngOnInit() {
@@ -26,8 +26,11 @@ export class GoodspageComponent implements OnInit {
       result=>{this.data2 = result;}
     )
     this.server.GetGoodsDetail_3(id).subscribe(
-      result=>{$("#text-targer").html(result);}
-    )
+      result=>{
+        this.data3=result;
+        $("#text-targer").html(this.data3);
+      }
+      )
   }
 
 }

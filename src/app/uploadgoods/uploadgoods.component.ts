@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ServerService} from '../server.service';
 declare var $: any;
 @Component({
   selector: 'app-uploadgoods',
@@ -7,7 +8,7 @@ declare var $: any;
 })
 export class UploadgoodsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private server : ServerService) { }
 
   ngOnInit() {
     $('#summernote').summernote({
@@ -29,8 +30,10 @@ export class UploadgoodsComponent implements OnInit {
   }
 
   test(){
-    var markupStr = $('#summernote').summernote('code');
-    console.log(markupStr);
+    var goodsdata = $('#summernote').summernote('code');
+    this.server.UploadGoods(goodsdata).subscribe(
+      ressult=>{console.log(ressult);}
+    )
   }
 
 }

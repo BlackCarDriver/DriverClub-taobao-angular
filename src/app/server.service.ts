@@ -41,5 +41,12 @@ export class ServerService {
     var url =  this.addr+"/getmsg/goods/souce?tag=text&goodsid="+id;
     return this.http.get<string>(url).pipe();
   }
+  //upload goods message to server
+  UploadGoods(goods:string){
+    var postdata = {goodsdata:goods};
+    var url = this.addr+"/upload/goods";
+    return this.http.post<string>(
+      url,postdata).pipe();
+  }
 
 }
