@@ -14,6 +14,7 @@
     border: 1px solid rgba(142, 137, 137, 0.25);
     margin-bottom: 20px;
     margin-left: 20px;
+    padding: 0px;
 }
 .head-picture img{
     height: 100%;
@@ -67,4 +68,9 @@
     float: right;
     margin: 4px 10px;
     height: 30px;
+}
+.title2{
+    padding: 30px;
+    font-size: 1.3em;
+    overflow: hidden;
 }

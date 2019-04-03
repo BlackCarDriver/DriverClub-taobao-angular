@@ -26,8 +26,11 @@ export class UploadgoodsComponent implements OnInit {
         ['picture',['picture']], //插入图片               
       ],
     });
-    
-   
+  }
+
+  test(){
+    var markupStr = $('#summernote').summernote('code');
+    console.log(markupStr);
   }
 
 }
