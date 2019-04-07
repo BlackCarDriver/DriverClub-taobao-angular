@@ -25,3 +25,16 @@ export class GoodsState{
     collect:number =0;
     talk:number=0;
 }
+//长传商品页面上传的信息
+export class UploadGoods{
+    title:string="";
+    username: string="";
+    date :string = "";
+    price:number=0;
+    imgurl:string="";
+    text:string="";
+    type:string="";
+    tag:string="";
+    usenewtype:boolean = false;
+    newtypename:string = "";
+}

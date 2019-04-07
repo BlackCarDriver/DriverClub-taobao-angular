@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ServerService} from '../server.service';
 import { headersToString } from 'selenium-webdriver/http';
+import {  HomePageGoods,GoodsType,GoodSubType } from '../struct';
+
 declare var $: any;
 
 
@@ -13,9 +15,21 @@ declare var $: any;
 
 export class UploadgoodsComponent implements OnInit {
   
-  headImgName = "未选择文件...";
-  constructor(private server : ServerService) { }
-  
+  private headImgName = "未选择文件...";
+  private typearray = GoodsType[10];
+  private typelist = GoodSubType[100];
+  //以下是打包上传到服务端的数据
+  headImgUrl = "http://img5.duitang.com/uploads/item/201601/17/20160117222537_3vCcm.jpeg"
+  title = "黑车司机二手交易平台大法好！";
+  username = "blackcardriver";
+  date = "2019-4-7";
+  price = 0.0;
+  type = "";
+  usenewtype = false;
+  newtypename = "";
+
+
+  constructor(private server : ServerService) {}
   
   ngOnInit() {
     $('#summernote').summernote({
@@ -34,36 +48,46 @@ export class UploadgoodsComponent implements OnInit {
         ['picture',['picture']], //插入图片               
       ],
     });
-    //上传头像框改变后，获取文件名，判断文件大小，上传文件，获得imgurl
-    $("#upload").change(function(evt){ 
-      //如果文件为空 
-      if($(this).val() == ''){ 
-        return; 
-      } 
-    
-     //判断文件大小
-     var files = evt.currentTarget.files;
-     var filesize = files[0].size;
-     console.log(filesize);
-     if(filesize>102400){
-       alert("请上传100kb 以下的图片");
-       return;
-     }
-     //判断文件类型，并获取文件名到页面
-     var filename = $(this).val().replace(/.*(\/|\\)/, "");
-     var pos = filename.lastIndexOf(".");
-     var filetype = filename.substring(pos,filename.length)  //此处文件后缀名也可用数组方式获得str.split(".") 
-     if (filetype.toLowerCase()!=".jpg" && filetype.toLowerCase()!=".png"){
-      alert("请上传 png 或 jpg 格式的图片");
-      return;
-     }else{
-      $("#filename").html(filename);
-     }
+    $(document).ready(function(){
+      //上传头像框改变后，获取文件名，判断文件大小，上传文件，获得imgurl
+      $("#upload").change(function(evt){ 
+        //如果文件为空 
+        if($(this).val() == ''){ 
+          return; 
+        } 
+       //判断文件大小
+       var files = evt.currentTarget.files;
+       var filesize = files[0].size;
+       console.log(filesize);
+       if(filesize>102400){
+         alert("请上传100kb 以下的图片");
+         return;
+       }
+       //判断文件类型，并获取文件名到页面
+       var filename = $(this).val().replace(/.*(\/|\\)/, "");
+       var pos = filename.lastIndexOf(".");
+       var filetype = filename.substring(pos,filename.length)  //此处文件后缀名也可用数组方式获得str.split(".") 
+       if (filetype.toLowerCase()!=".jpg" && filetype.toLowerCase()!=".png"){
+        alert("请上传 png 或 jpg 格式的图片");
+        return;
+       }else{
+        $("#filename").html(filename);
+           //上传图片到服务端并获imgurl
+           $("#uploadbtn").trigger("click"); 
+       }
+      });
+      //解决下拉菜单按钮不能下拉
+      $(".dropdown-toggle").on('click',function(){
+        $('.dropdown-toggle').dropdown();
+      });//ready() is over
 
-     
-    }) 
-  }
+    });
 
+    this.GetType()
+  }//oninit() is over
+ 
+ 
+//获得富文本编辑框的内容
   test(){
     var goodsdata = $('#summernote').summernote('code');
     this.server.UploadGoods(goodsdata).subscribe(
@@ -71,8 +95,44 @@ export class UploadgoodsComponent implements OnInit {
     )
   }
 
+//点击选择封面后激活input标签选择文件
   selectImg(){
     $("#upload").trigger("click");
+  }
+  
+//将input选中的图片发送到服务端，获得一个链接
+  uploadcover(){
+    var files = $("#upload").prop('files');
+    console.log(files[0]);
+    this.server.UploadCover("testcover",files[0]).subscribe(
+    result=>{
+      if(result != null){
+        this.headImgUrl = result;
+      }
+    }
+  )}
+
+  //选择分类后记录这个值并更新到按钮显示
+ selecttype(type:string,index:number){
+   $("#btn-type").html(type+" <span class='caret'>");
+   this.typelist = this.typearray[index].list;
+   this.usenewtype = false;
+   alert(this.title)
+ }
+ //选择子分类后将子分类显示到按钮
+  GetSubType(type:string){
+      $("#subtype").html(type+" <span class='caret'>")
+      if(type=='新标签') this.usenewtype = true;
+  }
+
+  //得到物品子分类 ,又ngonitit调用
+  GetType(){
+    this.server. GetHomePageType().subscribe(
+    result => {this.typearray = result;});
+  }
+
+  Titlechange(title:string){
+    this.title =title;
   }
   
 }

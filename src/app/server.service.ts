@@ -48,5 +48,15 @@ export class ServerService {
     return this.http.post<string>(
       url,postdata).pipe();
   }
+  //upload head-img of goods to server and receive an imgurl
+  UploadCover(username:string , img:any){
+    var postdata = new FormData();
+    postdata.append("name", username);
+    postdata.append("file",img)
+    var url = this.addr + "/upload/cover"; 
+    return this.http.post<string>(
+      url,postdata
+    ).pipe();
+  }     
 
 }

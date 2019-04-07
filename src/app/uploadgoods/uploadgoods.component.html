@@ -1,4 +1,5 @@
 <app-navig></app-navig>
+
 <div class="container">
     <div class="row">
         <ol class="breadcrumb">
@@ -14,11 +15,11 @@
             <div class="col-md-6">
                     <span class="label  label-primary yulan">预览效果</span>
                     <div class="goods-box">
-                        <img class="img-thumbnail" src="http://img2.chinadaily.com.cn/images/201903/27/5c9ac98aa3104842e4a5bb73.jpeg">
-                        <p class="good-title">发大沙发斯蒂芬大丰收爱迪生发大厦</p>
-                            <a class="good-user"><span class="glyphicon glyphicon-user"></span> BlackCarDriver</a>
-                            <p class="good-date"><span class="glyphicon glyphicon-calendar"></span>2019-3-3</p>
-                            <p class="good-price"><span class="glyphicon glyphicon-yen"></span>65</p>
+                        <img class="img-thumbnail" src={{headImgUrl}}>
+                        <p class="good-title">{{title}}</p>
+                            <a class="good-user"><span class="glyphicon glyphicon-user"></span> {{username}}</a>
+                            <p class="good-date"><span class="glyphicon glyphicon-calendar"></span>{{date}}</p>
+                            <p class="good-price"><span class="glyphicon glyphicon-yen"></span>{{price}}</p>
                     </div><!--goods-box2 end-->              
             </div>
             <!--封面设置-->
@@ -29,33 +30,40 @@
                                     <dt>
                                     <input type="file" class="hidden" id="upload">
                                     <button class="btn btn-default" id="heading" (click)="selectImg()">选择封面</button>
+                                    <button id="uploadbtn" class="hidden" (click)="uploadcover()"></button>
                                     <span id="filename"></span>
                                     </dt>
                                     <dt>封面标题</dt>
-                                    <dd><input type="text" id="title"></dd>
+                                    <dd><input  value={{title}} type="text" id="title"></dd>
                                     <dt>出售价格</dt>
-                                    <dd><input type="text" class="price"></dd>
+                                    <dd><input value={{price}} type="number" class="price"></dd>
                                     <dt>
                                         <div class="btn-group">
-                                             <button type="button" id="btn-type" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                             <button type="button" id="btn-type" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" >
                                               物品分类 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="btn-type" >
-                                                <li><a href="#">分类1</a></li>
-                                                <li><a href="#">分类2</a></li>
-                                                <li><a href="#">分类3</a></li>
+                                                <li (click)="selecttype('学习用品',0)"><a>学习用品</a></li>
+                                                <li (click)="selecttype('体育用品',1)"><a>体育用品</a></li>
+                                                <li (click)="selecttype('生活用品',2)"><a>生活用品</a></li>
+                                                <li (click)="selecttype('电子产品',3)"><a>电子产品</a></li>
+                                                <li (click)="selecttype('手工diy',4)"><a>手工diy</a></li>
+                                                <li (click)="selecttype('虚拟商品',5)"><a>虚拟商品</a></li>
+                                                 <li (click)="selecttype('其他',6)"><a>其他</a></li>
                                             </ul>
                                         </div><!--btn-group-->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="btn-group" *ngIf="usenewtype==false">
+                                            <button type="button" id="subtype" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" >
                                             物品标签 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><a href="#">分类1</a></li>
-                                                <li><a href="#">分类2</a></li>
-                                                <li><a href="#">分类3</a></li>
+                                               <li *ngFor="let rows of typelist" (click)="GetSubType(rows.name)"><a>{{rows.name}}</a></li>
+                                               <li  (click)="GetSubType('新标签')"><a>添加新标签</a></li>
                                             </ul>
                                         </div><!--btn-group-->
+                                        <div *ngIf="usenewtype==true" id="newtypediv">
+                                            <input id="newtypeinput" placeholder="新标签名">
+                                        </div>
                                     </dt>
                                     
                      </dl>
@@ -69,11 +77,11 @@
                 <div class="panel-heading"><span class="glyphicon glyphicon-pushpin"></span>上传规则</div>
                 <div class="panel-body ">
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">封面图片应低于100kb,展示页面的总大小应低于300kb</li>
+                        <li class="list-group-item">一经发包含影响恶劣的信息,将作删除商品或封号处理</li>
+                        <li class="list-group-item">商品卖出后，请及时到管理页面对此商品进行下架操作</li>
+                        <li class="list-group-item">展示商品的顺序将以上传者等级作为第一排序依据</li>
+                        <li class="list-group-item">本站不保证你上传的商品信息长期存在</li>
                     </ul>
                 </div>
                 </div>
@@ -93,5 +101,6 @@
     <div class="row upload_row">
         <button type="button" id="uploadbtn" class="btn btn-info" (click)="test()">上传商品</button>
     </div>
+    
 </div>
 <app-footer></app-footer>
