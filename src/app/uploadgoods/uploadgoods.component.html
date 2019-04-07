@@ -24,18 +24,23 @@
             <!--封面设置-->
             <div class="col-md-6 h260px">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">基本设置</div>
+                    <div class="panel-heading" >基本设置</div>
                      <dl class="setting-box">
+                                    <dt>
+                                    <input type="file" class="hidden" id="upload">
+                                    <button class="btn btn-default" id="heading" (click)="selectImg()">选择封面</button>
+                                    <span id="filename"></span>
+                                    </dt>
                                     <dt>封面标题</dt>
                                     <dd><input type="text" id="title"></dd>
                                     <dt>出售价格</dt>
                                     <dd><input type="text" class="price"></dd>
                                     <dt>
                                         <div class="btn-group">
-                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                             <button type="button" id="btn-type" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                               物品分类 <span class="caret"></span>
                                             </button>
-                                            <ul class="dropdown-menu">
+                                            <ul class="dropdown-menu" aria-labelledby="btn-type" >
                                                 <li><a href="#">分类1</a></li>
                                                 <li><a href="#">分类2</a></li>
                                                 <li><a href="#">分类3</a></li>
@@ -52,10 +57,7 @@
                                             </ul>
                                         </div><!--btn-group-->
                                     </dt>
-                                    <dt>
-                                    <input type="file" class="hidden" id="upload">
-                                    <button class="btn btn-default">选择封面</button>
-                                    </dt>
+                                    
                      </dl>
                     </div><!--pannel-->  
                 </div>

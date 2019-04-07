@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import {ServerService} from '../server.service';
+import { headersToString } from 'selenium-webdriver/http';
 declare var $: any;
+
+
 @Component({
   selector: 'app-uploadgoods',
   templateUrl: './uploadgoods.component.html',
   styleUrls: ['./uploadgoods.component.css']
 })
+
+
 export class UploadgoodsComponent implements OnInit {
-
+  
+  headImgName = "未选择文件...";
   constructor(private server : ServerService) { }
-
+  
+  
   ngOnInit() {
     $('#summernote').summernote({
       placeholder: '<p><span style="font-size: 36px;">这里编辑你的商品展示页面</span></p>',
@@ -27,6 +34,34 @@ export class UploadgoodsComponent implements OnInit {
         ['picture',['picture']], //插入图片               
       ],
     });
+    //上传头像框改变后，获取文件名，判断文件大小，上传文件，获得imgurl
+    $("#upload").change(function(evt){ 
+      //如果文件为空 
+      if($(this).val() == ''){ 
+        return; 
+      } 
+    
+     //判断文件大小
+     var files = evt.currentTarget.files;
+     var filesize = files[0].size;
+     console.log(filesize);
+     if(filesize>102400){
+       alert("请上传100kb 以下的图片");
+       return;
+     }
+     //判断文件类型，并获取文件名到页面
+     var filename = $(this).val().replace(/.*(\/|\\)/, "");
+     var pos = filename.lastIndexOf(".");
+     var filetype = filename.substring(pos,filename.length)  //此处文件后缀名也可用数组方式获得str.split(".") 
+     if (filetype.toLowerCase()!=".jpg" && filetype.toLowerCase()!=".png"){
+      alert("请上传 png 或 jpg 格式的图片");
+      return;
+     }else{
+      $("#filename").html(filename);
+     }
+
+     
+    }) 
   }
 
   test(){
@@ -36,4 +71,8 @@ export class UploadgoodsComponent implements OnInit {
     )
   }
 
+  selectImg(){
+    $("#upload").trigger("click");
+  }
+  
 }
