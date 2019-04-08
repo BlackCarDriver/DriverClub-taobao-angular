@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {  HomePageGoods , GoodsType,GoodsState} from '../app/struct';
+import {  HomePageGoods , GoodsType,GoodsState,UploadGoods} from '../app/struct';
 
 @Injectable({
   providedIn: 'root'
@@ -59,4 +59,9 @@ export class ServerService {
     ).pipe();
   }     
 
+  //upload goods describe to server host used by upload goods page
+  UploadGoodsData(data:UploadGoods){
+    var url = this.addr + "/upload/upload/goodsdata"; 
+    return this.http.post<number>(url,data).pipe();
+  }
 }

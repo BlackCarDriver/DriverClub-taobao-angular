@@ -20,7 +20,8 @@
                             <a class="good-user"><span class="glyphicon glyphicon-user"></span> {{username}}</a>
                             <p class="good-date"><span class="glyphicon glyphicon-calendar"></span>{{date}}</p>
                             <p class="good-price"><span class="glyphicon glyphicon-yen"></span>{{price}}</p>
-                    </div><!--goods-box2 end-->              
+                    </div><!--goods-box2 end-->       
+                    <strong class="warning">{{warnmsg}}</strong>    
             </div>
             <!--封面设置-->
             <div class="col-md-6 h260px">
@@ -34,9 +35,9 @@
                                     <span id="filename"></span>
                                     </dt>
                                     <dt>封面标题</dt>
-                                    <dd><input  value={{title}} type="text" id="title"></dd>
+                                    <dd><input [(ngModel)]="title" type="text" id="title"></dd>
                                     <dt>出售价格</dt>
-                                    <dd><input value={{price}} type="number" class="price"></dd>
+                                    <dd><input [(ngModel)]="price" type="number" class="price"></dd>
                                     <dt>
                                         <div class="btn-group">
                                              <button type="button" id="btn-type" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" >
@@ -52,7 +53,7 @@
                                                  <li (click)="selecttype('其他',6)"><a>其他</a></li>
                                             </ul>
                                         </div><!--btn-group-->
-                                        <div class="btn-group" *ngIf="usenewtype==false">
+                                        <div class="btn-group" *ngIf="usenewtag==false">
                                             <button type="button" id="subtype" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" >
                                             物品标签 <span class="caret"></span>
                                             </button>
@@ -61,24 +62,25 @@
                                                <li  (click)="GetSubType('新标签')"><a>添加新标签</a></li>
                                             </ul>
                                         </div><!--btn-group-->
-                                        <div *ngIf="usenewtype==true" id="newtypediv">
+                                        <div *ngIf="usenewtag==true" id="newtypediv">
                                             <input id="newtypeinput" placeholder="新标签名">
                                         </div>
                                     </dt>
                                     
                      </dl>
                     </div><!--pannel-->  
-                </div>
             </div>
+        </div>    
         </div>
         <!--规则说明-->
-        <div class="col-md-5 ">
+        <div class="col-md-5 upload-rule" > 
             <div class="panel panel-default">
                 <div class="panel-heading"><span class="glyphicon glyphicon-pushpin"></span>上传规则</div>
                 <div class="panel-body ">
                     <ul class="list-group">
                         <li class="list-group-item">封面图片应低于100kb,展示页面的总大小应低于300kb</li>
                         <li class="list-group-item">一经发包含影响恶劣的信息,将作删除商品或封号处理</li>
+                        <li class="list-group-item">请设置适当的价格，标题和标签,发现有意乱填将作删除处理</li>
                         <li class="list-group-item">商品卖出后，请及时到管理页面对此商品进行下架操作</li>
                         <li class="list-group-item">展示商品的顺序将以上传者等级作为第一排序依据</li>
                         <li class="list-group-item">本站不保证你上传的商品信息长期存在</li>
@@ -94,12 +96,12 @@
     <!--提交行-->
     <div class="row">
         <span id="uploadcheck">
-            <input  type="checkbox" name="checkbox1" value="checkbox">
+            <input id="check" type="checkbox">
             我已了解并同意上传规则
         </span>
     </div>
     <div class="row upload_row">
-        <button type="button" id="uploadbtn" class="btn btn-info" (click)="test()">上传商品</button>
+        <button type="button" id="uploadbtn" class="btn btn-info" (click)="Upload()">上传商品</button>
     </div>
     
 </div>

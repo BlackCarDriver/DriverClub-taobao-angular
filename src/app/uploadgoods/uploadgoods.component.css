@@ -28,7 +28,7 @@
     margin-bottom: 5px;
 }
 .good-title{
-    max-height: 21px;
+    height: 21px;
     line-height: 21px;
     overflow: hidden;
     margin-bottom: 4px;
@@ -43,7 +43,8 @@
 .good-date{
     float: right;
     margin-right: 0px;
-    margin-bottom:4px;
+    margin-bottom: 0px;
+    font-size: 0.6em;
 }
 .good-price{
     font-size: 20px;
@@ -97,4 +98,12 @@
 }
 #newtypediv{
     display: inline-block;
+}
+.upload-rule li{
+    padding: 7px 15px;
+}
+.warning{
+    color: #F44336;
+    padding-left: 30px;
+    text-shadow: 0px 0px 15px yellow;
 }

@@ -27,14 +27,14 @@ export class GoodsState{
 }
 //长传商品页面上传的信息
 export class UploadGoods{
-    title:string="";
     username: string="";
+    title:string="";
     date :string = "";
     price:number=0;
     imgurl:string="";
-    text:string="";
     type:string="";
     tag:string="";
-    usenewtype:boolean = false;
-    newtypename:string = "";
+    usenewtag:boolean = false;
+    newtagname:string = "";
+    text:string="";
 }
