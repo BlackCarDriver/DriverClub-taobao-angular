@@ -38,3 +38,14 @@ export class UploadGoods{
     newtagname:string = "";
     text:string="";
 }
+//个人信息设置页上传的信息数据
+export class PersonalBase{
+    username:string= "";
+    usersex:string = "";
+    sign:string = "";
+    grade:string="2019";
+    college:string ="";
+    email:string = "";
+    qq:string ="";
+    phone:string="";
+}
