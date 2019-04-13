@@ -15,10 +15,10 @@
     padding: 0px;
 }
 .img1{
-    height: 60px;
-    width: 60px;
-    margin: 20px;
-
+    height: 70px;
+    width: 70px;
+    margin: 13px;
+    border-radius: 60px;
 }
 .username h3{
     color: #f2cf2e;

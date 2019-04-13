@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {  HomePageGoods , GoodsType,GoodsState,UploadGoods} from '../app/struct';
-
+import { PersonalBase} from '../app/struct';
 @Injectable({
   providedIn: 'root'
 })
@@ -58,10 +58,35 @@ export class ServerService {
       url,postdata
     ).pipe();
   }     
+ //upload head-img of user to server and receive an imgurl
+ UploadHeadImg(username:string , img:any){
+    var postdata = new FormData();
+    postdata.append("name", username);
+    postdata.append("file",img)
+    var url = this.addr + "/upload/headimg"; 
+    return this.http.post<string>(
+      url,postdata
+    ).pipe();
+  }
 
   //upload goods describe to server host used by upload goods page
   UploadGoodsData(data:UploadGoods){
     var url = this.addr + "/upload/upload/goodsdata"; 
     return this.http.post<number>(url,data).pipe();
+  }
+  //get usermsg in chgmymsg page
+  Getmymsg(id:string){
+    var url = this.addr+"/getmsg/usermsg?id="+id;
+    return this.http.get<PersonalBase>(url).pipe();
+  }
+  //upload and updata base message of user
+  UploadMyBaseMsg(data:PersonalBase){
+    var url = this.addr + "/updata/mymessage/basemsg"; 
+    return this.http.post<number>(url,data).pipe();
+  }
+  //upload and updata base message of user
+  UploadContactMsg(data:PersonalBase){
+      var url = this.addr + "/updata/mymessage/contactmsg"; 
+      return this.http.post<number>(url,data).pipe();
   }
 }

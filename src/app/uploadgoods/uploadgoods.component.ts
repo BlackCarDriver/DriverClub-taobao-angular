@@ -21,7 +21,7 @@ export class UploadgoodsComponent implements OnInit {
   private typearray = GoodsType[10];
   private typelist = GoodSubType[100];
   //以下是打包上传到服务端的数据
-  headImgUrl = "http://img5.duitang.com/uploads/item/201601/17/20160117222537_3vCcm.jpeg"
+  headImgUrl = "http://localhost:8090/source/images?tag=headimg&&name=testcover.jpg"
   title = "黑车司机二手交易平台大法好！";
   username = "blackcardriver";
   date = "2019-04-07";
@@ -62,7 +62,7 @@ export class UploadgoodsComponent implements OnInit {
        //判断文件大小
        var files = evt.currentTarget.files;
        var filesize = files[0].size;
-       console.log(filesize);
+      //  console.log(filesize);
        if(filesize>102400){
          alert("请上传100kb 以下的图片");
          return;

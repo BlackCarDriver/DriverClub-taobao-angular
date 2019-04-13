@@ -41,10 +41,11 @@ export class UploadGoods{
 //个人信息设置页上传的信息数据
 export class PersonalBase{
     username:string= "";
+    userid:string = "";
     usersex:string = "";
     sign:string = "";
-    grade:string="2019";
-    college:string ="";
+    grade:string="";
+    colleage:string ="";
     email:string = "";
     qq:string ="";
     phone:string="";
