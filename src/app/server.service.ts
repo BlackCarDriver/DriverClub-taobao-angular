@@ -89,4 +89,12 @@ export class ServerService {
       var url = this.addr + "/updata/mymessage/contactmsg"; 
       return this.http.post<number>(url,data).pipe();
   }
+  //get message of personal in pereesonal page
+  GetMyMsg(userid:string, key:string, tag:string){
+      var url = this.addr + "/getmsg/personal/mymessage"; 
+      var data = {tag:tag, id:userid, key:key};
+      return this.http.post<any>(url,data).pipe();
+  }
+
+
 }

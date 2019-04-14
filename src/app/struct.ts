@@ -50,3 +50,56 @@ export class PersonalBase{
     qq:string ="";
     phone:string="";
 }
+//个人主页里面需要展示的详细信息
+export class PersonalExpend{
+    //基本信息和联系信息
+    username:string= "";
+    userid:string = "";
+    usersex:string = "";
+    sign:string = "";
+    grade:string="";
+    colleage:string ="";
+    email:string = "";
+    qq:string ="";
+    phone:string="";
+    //首部数据
+    leave:number = 0;  
+    sorce:number = 0;   //积分
+    rank:number =0;    
+    becare:number =0;    //关注我的人数
+    like:number =0;      //被点赞次数
+    //其他数据
+    lasttime:number=0;  //上次登录的时间间隔（小时）
+    goodsnum:number=0;  //拥有商品的数量
+    scuess:number=0;    //成功交易的商品数量
+    visnum:number=0;    //主页访问次数
+    care:number = 0;    //我关注的人数
+}
+//个人主页里我的商品和我的收藏，商品简要显示数据
+export class Goods2{
+    imgurl:string="https://img.alicdn.com/bao/uploaded/i1/TB1WlfKOFXXXXbJapXXXXXXXXXX_!!0-item_pic.jpg_160x160xz.jpg";
+    goodsid:string="000";
+    describ:string="鸿星尔克男鞋板鞋休";
+    price:number=0;
+}
+//个人主页里面的我的消息
+export class MyMessage{
+    messageid:string;
+    senderimgurl:string;
+    sendername:string;
+    title:string;
+    time:string;
+    describ:string;
+}
+//用户排名数据元素
+export class Rank{
+    rank:number;
+    name:string;
+    userid:string;
+}
+//我收藏的和关注我的用户数据元素
+export class User{
+    userid:string;
+    username:string;
+    imgurl:string;
+}
