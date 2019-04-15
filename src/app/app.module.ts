@@ -14,6 +14,7 @@ import { GoodspageComponent } from './goodspage/goodspage.component';
 import { HttpClientModule }    from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { CharthpComponent } from './charthp/charthp.component';
+import { Personal2Component } from './personal2/personal2.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CharthpComponent } from './charthp/charthp.component';
     UploadgoodsComponent,
     GoodspageComponent,
     AboutComponent,
-    CharthpComponent
+    CharthpComponent,
+    Personal2Component
   ],
   imports: [
     BrowserModule,

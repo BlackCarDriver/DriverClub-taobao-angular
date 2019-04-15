@@ -16,10 +16,10 @@ declare var $: any;
 
 export class UploadgoodsComponent implements OnInit {
   
-  private headImgName = "未选择文件...";
-  private warnmsg = "";
-  private typearray = GoodsType[10];
-  private typelist = GoodSubType[100];
+  headImgName = "未选择文件...";
+  warnmsg = "";
+  typearray = GoodsType[10];
+  typelist = GoodSubType[100];
   //以下是打包上传到服务端的数据
   headImgUrl = "http://localhost:8090/source/images?tag=headimg&&name=testcover.jpg"
   title = "黑车司机二手交易平台大法好！";

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {  HomePageGoods , GoodsType,GoodsState,UploadGoods} from '../app/struct';
+import {  HomePageGoods , GoodsType,GoodsState,UploadGoods,PersonalExpend } from '../app/struct';
 import { PersonalBase} from '../app/struct';
 @Injectable({
   providedIn: 'root'
@@ -93,8 +93,12 @@ export class ServerService {
   GetMyMsg(userid:string, key:string, tag:string){
       var url = this.addr + "/getmsg/personal/mymessage"; 
       var data = {tag:tag, id:userid, key:key};
-      return this.http.post<any>(url,data).pipe();
+      return this.http.post<any>(url,data).pipe(); 
   }
-
+  //get message of personal2 page
+  GetOtherMsg(userid:string){
+    var url = this.addr+"/getmsg/othermsg?id="+userid;
+    return this.http.get<PersonalExpend>(url).pipe();
+  }
 
 }

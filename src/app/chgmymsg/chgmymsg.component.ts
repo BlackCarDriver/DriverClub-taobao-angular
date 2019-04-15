@@ -11,20 +11,20 @@ declare var $: any;
   styleUrls: ['./chgmymsg.component.css']
 })
 export class ChgmymsgComponent implements OnInit {
-  private headimgurl = "http://localhost:8090/source/images?tag=headimg&&name=BlackCarDriver.png";
-  private userid = "1234567";
-  private data = new PersonalBase();
+   headimgurl = "http://localhost:8090/source/images?tag=headimg&&name=BlackCarDriver.png";
+   userid = "1234567";
+   data = new PersonalBase();
   //绑定到表单的数据的默认值
-  private username = "未设置";
-  private usersex = "BOY";
-  private sign = "Welcome to BlackCarDriver.cn";
-  private grade = "2019";
-  private colleage = "未设置";
-  private email = "保密";
-  private qq = "保密";
-  private phone = "保密";
+   username = "未设置";
+   usersex = "BOY";
+   sign = "Welcome to BlackCarDriver.cn";
+   grade = "2019";
+   colleage = "未设置";
+   email = "保密";
+   qq = "保密";
+   phone = "保密";
   //上传到服务器和请求获取的数据
-  private maindata = new PersonalBase();
+   maindata = new PersonalBase();
   
   constructor(private server : ServerService) {}
 

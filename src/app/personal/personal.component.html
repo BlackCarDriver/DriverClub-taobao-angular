@@ -233,9 +233,9 @@
                 <div class="col-md-6 float-right-blue">更多<span class="glyphicon glyphicon-chevron-right"></span></div>
             </div>
               <div class="row">
-                  <ul class="headimg-list">
+                  <ul class="headimg-list" >
                       <li class="headimg" *ngFor="let rows of icare">
-                          <a href="#"><img src={{rows.imgurl}}  title={{rows.username}}></a>
+                          <a  routerLink="/personals"><img src={{rows.imgurl}}  title={{rows.username}}></a>
                       </li>
                   </ul>
               </div>

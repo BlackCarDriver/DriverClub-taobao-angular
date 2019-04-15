@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonalExpend , Goods2,MyMessage, Rank,User  } from '../struct';
 import { ServerService } from '../server.service';
-import { getRandomString} from 'selenium-webdriver/safari';
+
 @Component({
   selector: 'app-personal',
   templateUrl: './personal.component.html',
   styleUrls: ['./personal.component.css']
 })
 export class PersonalComponent implements OnInit {
-  private userid = "123456";
-  private key = "itisuserkey..";
-  private msg = new PersonalExpend(); //基本信息
-  private mygoodslist = Goods2[100];      //我的商品
-  private mycollectlist = Goods2[100];    //我收藏的商品
-  private mymessagelist = MyMessage[100]; //我的消息
-  private hero = Rank[20];             //等级排行榜
-  private icare = User[100];   //我关注的和关注我的
-  private carei = User[100];  //关注我的用户
+   userid = "123456";
+   key = "itisuserkey..";
+   msg = new PersonalExpend(); //基本信息
+   mygoodslist = Goods2[100];      //我的商品
+   mycollectlist = Goods2[100];    //我收藏的商品
+   mymessagelist = MyMessage[100]; //我的消息
+   hero = Rank[20];             //等级排行榜
+   icare = User[100];   //我关注的和关注我的
+   carei = User[100];  //关注我的用户
   constructor(private server : ServerService) { }
 
   ngOnInit() {

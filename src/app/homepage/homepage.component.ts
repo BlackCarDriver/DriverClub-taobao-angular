@@ -18,15 +18,15 @@ declare let $ : any;
 export class HomepageComponent implements OnInit {
 
   //the data need to map on html file
-  private goodsarray = HomePageGoods[100];  
-  private typearray = GoodsType[10];
-  private studytype = GoodSubType[100];
-  private sporttype = GoodSubType[100];
-  private daliytype = GoodSubType[100];
-  private electritype = GoodSubType[100];
-  private diytype = GoodSubType[100];
-  private virtualtype = GoodSubType[100];
-  private othertype = GoodSubType[100];
+   goodsarray = HomePageGoods[100];  
+   typearray = GoodsType[10];
+   studytype = GoodSubType[100];
+   sporttype = GoodSubType[100];
+   daliytype = GoodSubType[100];
+   electritype = GoodSubType[100];
+   diytype = GoodSubType[100];
+   virtualtype = GoodSubType[100];
+   othertype = GoodSubType[100];
 
   constructor(
     private server : ServerService
