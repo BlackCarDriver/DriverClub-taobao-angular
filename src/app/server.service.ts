@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {  HomePageGoods , GoodsType,GoodsState,UploadGoods,PersonalExpend } from '../app/struct';
+import {  account1, account2} from '../app/struct';
 import { PersonalBase} from '../app/struct';
+import { post } from 'selenium-webdriver/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -100,5 +102,22 @@ export class ServerService {
     var url = this.addr+"/getmsg/othermsg?id="+userid;
     return this.http.get<PersonalExpend>(url).pipe();
   }
+  //login function used in naving
+  Login(data:account2){
+      var url = this.addr+"/signin";
+      return this.http.post<number>(url,data).pipe();
+  }
+  //send base message to server to conirm 
+  ConfirmMsg(data:account1){
+    var url = this.addr + "/register/confirmmsg";
+    return this.http.post<number>(url,data).pipe();
+  }
+  //send confirm code to the server and receive the state
+  ConfirmCode(data :account1){
+    var url = this.addr + "/regeister/confirmcode";
+    return this.http.post<number>(url,data).pipe();
+  }
+  
+ 
 
 }

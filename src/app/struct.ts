@@ -103,3 +103,15 @@ export class User{
     username:string;
     imgurl:string;
 }
+//注册账号需要用到的用户信息
+export class account1{
+    name:string;
+    password:string;
+    email:string;
+    code:string;
+}
+//登录账号信息
+export class account2{
+    name:string;
+    password:string;
+}
