@@ -107,7 +107,7 @@ export class NavigComponent implements OnInit {
   }
 // check the intput box content in login and register
 //  part autotily after it have been change
- checkinput(){
+checkinput(){
     // input of uesrname in register
     $("#regname").change(function(){
       if(namereg.test( $("#regname").val())==false){
