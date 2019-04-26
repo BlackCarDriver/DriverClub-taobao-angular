@@ -68,6 +68,12 @@ export class NavigComponent implements OnInit {
       console.log(result);
       if(result == enable){
         alert("验证码已发送至你的邮箱!");
+        //forbid to change the input
+        $("#regname").attr("disabled","disabled");	
+        $("#regpasw1").attr("disabled","disabled");	
+        $("#regpasw2").attr("disabled","disabled");	
+        $("#regemail").attr("disabled","disabled");	
+        //forbit to click get code for a while
         $("#codebox").removeClass("hidden");
         $("#registerbtn").removeClass("disablebtn");
         $("#registerbtn").addClass("loginbutton");
@@ -75,6 +81,7 @@ export class NavigComponent implements OnInit {
         $("#getcode").addClass("hidden");
         $("#getcode").html("重新获取");
         $("#getcode2").removeClass("hidden");
+        //show the button again after a minue
         setTimeout(function () {
           $("#getcode2").addClass("hidden");
           $("#getcode").removeClass("hidden");
@@ -92,16 +99,18 @@ export class NavigComponent implements OnInit {
   // send the confirm code and register message to the server 
   confirmcode(){
     this.data1.code = $("#regcode").val();
+    if(codereg.test(this.data1.code)==false){
+      alert("请输入正确的验证码！");
+      return;
+    }
     this.server.ConfirmCode(this.data1).subscribe(result=>{
-      console.log(result);
-      if(result==1){
-          let code = $("#regcode").val();
-          if(codereg.test(code)==false){
-            alert("请输入正确的验证码！");
-          }else{
-            alert("注册成功！");
-            $(".modal-body  a[href='#home']").tab("show");
-          }
+      if(result==scuess){ 
+          alert("注册成功！");
+          $(".modal-body  a[href='#home']").tab("show");
+      }else if (result==disable){
+          alert("验证码有误，请重新输入");
+      }else{
+          alert("尝试次数太多或验证码过期,请重新注册或获取注册码!");
       }
     });
   }
