@@ -12,8 +12,8 @@ import { post } from 'selenium-webdriver/http';
 export class ServerService {
 
   //important config !!!
-  private addr: string  = "http://localhost:8090"
-
+ // private addr: string  = "http://localhost:8090"
+ private addr: string  = "http://www.blackcardriver.cn:8090"
   constructor( 
     private http: HttpClient
     ){ }
