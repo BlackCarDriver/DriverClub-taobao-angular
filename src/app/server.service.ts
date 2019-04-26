@@ -13,7 +13,7 @@ export class ServerService {
 
   //important config !!!
  // private addr: string  = "http://localhost:8090"
- private addr: string  = "http://www.blackcardriver.cn:8090"
+ private addr: string  = "https://www.blackcardriver.cn/server"
   constructor( 
     private http: HttpClient
     ){ }
