@@ -61,7 +61,6 @@ export class NavigComponent implements OnInit {
         }else{
           alert("发生未知错误,请稍后再试或反馈信息！")
         }
-
     })
   }
   // Send the Base message of register to Server receive the state, if the
