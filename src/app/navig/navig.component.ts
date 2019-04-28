@@ -22,6 +22,7 @@ let	disable   = -2;
 let unknowerr = -3;
 let repectname  = -20;
 let repectemail = -30;
+let othererror  = -99
 
 @Component({
   selector: 'app-navig',
@@ -53,7 +54,14 @@ export class NavigComponent implements OnInit {
     // console.log(namereg.test(this.data2.name));
     this.data2.password = $("#loginpassword").val();
     this.server.Login(this.data2).subscribe(result=>{
-        alert(result);
+        if (result==enable) {
+          alert("登录成功！")
+        }else if (result==disable){ 
+          alert("登录失败！")
+        }else{
+          alert("发生未知错误,请稍后再试或反馈信息！")
+        }
+
     })
   }
   // Send the Base message of register to Server receive the state, if the
