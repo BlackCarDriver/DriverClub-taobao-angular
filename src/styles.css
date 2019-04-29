@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 html{
-    min-width:350px;
+    margin-top:8.59375%; 
+    position:relative;
+    display: block;
+    overflow-x: hidden;
     color: #222;
     font: 14px/1.5 tahoma,arial,"Microsoft YaHei";
     background-color: #f5f6f7;
@@ -8,6 +11,7 @@ html{
     padding: 0px;
 }
 body {
+
     background-color: #f3f3f3;
     font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;
 }

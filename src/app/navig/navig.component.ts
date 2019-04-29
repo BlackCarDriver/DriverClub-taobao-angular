@@ -43,6 +43,7 @@ export class NavigComponent implements OnInit {
       $("#shortmsg").dropdown('toggle');
     })
     this.checkinput();
+    this.getcookie();
   }
   // show sing/regist box when click singin/reginst
   showsinginbox(){
@@ -51,18 +52,46 @@ export class NavigComponent implements OnInit {
   // check and send username and userpassword to server
   loging(){
     this.data2.name = $("#loginname").val();
-    // console.log(namereg.test(this.data2.name));
     this.data2.password = $("#loginpassword").val();
     this.server.Login(this.data2).subscribe(result=>{
         if (result==enable) {
           alert("登录成功！")
+          this.setcookie();
         }else if (result==disable){ 
-          alert("登录失败！")
+          alert("密码或账户名错误！")
         }else{
           alert("发生未知错误,请稍后再试或反馈信息！")
         }
     })
   }
+  //check the check box and choose to set username and password in cookie
+  setcookie(){
+      if($("#remember").is(':checked')==false){
+         //erase the cookie if checkbox value is false 
+        document.cookie = "drivername= ";
+        document.cookie = "driverpasw= ";
+        return;
+      }
+      var Days = 10;  
+      var exp = new Date();
+      exp.setTime(exp.getTime() + Days*24*60*60*1000);  
+      document.cookie = "drivername=" + escape($("#loginname").val()) + ";expires=" +exp.toUTCString();
+      document.cookie = "driverpasw=" + escape($("#loginpassword").val()) + ";expires=" +exp.toUTCString();
+  }
+ 
+  //find username and password in the cookie and push the nin input box
+  getcookie(){
+    console.log(document.cookie)
+    var username = document.cookie.match(/drivername=\w*/);
+    var password = document.cookie.match(/driverpasw=\w*/);
+    if (username.length==0 || password.length==0) return
+    var name = username[0].substring(11);
+    var pwd = password[0].substring(11);
+    console.log(name + "  "+pwd);
+    $("#loginname").val(name);
+    $("#loginpassword").val(pwd);
+  }
+
   // Send the Base message of register to Server receive the state, if the
   // message is ok, then should send the confirm code next
   confirm(){
@@ -122,7 +151,7 @@ export class NavigComponent implements OnInit {
     });
   }
 // check the intput box content in login and register
-//  part autotily after it have been change
+// part autotily after it have been change
 checkinput(){
     // input of uesrname in register
     $("#regname").change(function(){
