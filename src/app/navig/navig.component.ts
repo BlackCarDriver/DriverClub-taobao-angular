@@ -23,6 +23,8 @@ let unknowerr = -3;
 let repectname  = -20;
 let repectemail = -30;
 let othererror  = -99
+var code1 = "abcdefghijklmnopqrstuvwsyzABCDEFGHIJKLMNOPQRSTUVWSYZ_.0123456789@";
+var code2 = "!w@EeR#TrY$UtI%OyP^AuSD&FiG*HoJ(KpL)XaV_BsN+Md=f-g{hjnm};Wk?l>zx<c,vb";
 
 @Component({
   selector: 'app-navig',
@@ -59,6 +61,8 @@ export class NavigComponent implements OnInit {
           this.setcookie();
         }else if (result==disable){ 
           alert("密码或账户名错误！")
+        }else if (result==worng){
+          alert("你的浏览器貌似禁止了保存cookie,访问本站信息可能会出错！")
         }else{
           alert("发生未知错误,请稍后再试或反馈信息！")
         }
@@ -74,27 +78,30 @@ export class NavigComponent implements OnInit {
       }
       var Days = 10;  
       var exp = new Date();
+      var ck = $("#loginname").val()+"@"+$("#loginpassword").val();
+      var ck2 = this.encryption(ck);
+     // console.log("set " +  ck + " into " + ck2);
       exp.setTime(exp.getTime() + Days*24*60*60*1000);  
-      document.cookie = "drivername=" + escape($("#loginname").val()) + ";expires=" +exp.toUTCString();
-      document.cookie = "driverpasw=" + escape($("#loginpassword").val()) + ";expires=" +exp.toUTCString();
+      document.cookie = "BCDCNCK=" + ck2 + ";expires=" +exp.toUTCString();
   }
  
-  //find username and password in the cookie and push the nin input box
-  getcookie(){
-    console.log(document.cookie)
-    var username = document.cookie.match(/drivername=\w*/);
-    var password = document.cookie.match(/driverpasw=\w*/);
-    if (username.length==0 || password.length==0) return
-    var name = username[0].substring(11);
-    var pwd = password[0].substring(11);
-    console.log(name + "  "+pwd);
+//find username and password in the cookie and push the nin input box
+getcookie(){
+    //console.log(document.cookie);
+    var ck = document.cookie.match(/BCDCNCK=[^ ]*/);
+    var cks = ck[0].substring(8);
+    var ckss = this.decode(cks);
+   // console.log("reset " +  cks + " into " + ckss);
+    var name = ckss.split("@")[0]
+    var psw = ckss.split("@")[1]
     $("#loginname").val(name);
-    $("#loginpassword").val(pwd);
-  }
+    $("#loginpassword").val(psw);
+   // console.log(name+"   "+psw);
+}
 
-  // Send the Base message of register to Server receive the state, if the
-  // message is ok, then should send the confirm code next
-  confirm(){
+// Send the Base message of register to Server receive the state, if the
+// message is ok, then should send the confirm code next
+confirm(){
     $("#registerbtn").attr("disabled",true);
     if(this.checkRegister()==disable) return;
     this.data1.name = $("#regname").val();
@@ -130,10 +137,10 @@ export class NavigComponent implements OnInit {
         alert("发生错误,错误码:"+result);
       }
     });
-  }
+}
 
-  // send the confirm code and register message to the server 
-  confirmcode(){
+// send the confirm code and register message to the server 
+confirmcode(){
     this.data1.code = $("#regcode").val();
     if(codereg.test(this.data1.code)==false){
       alert("请输入正确的验证码！");
@@ -149,7 +156,7 @@ export class NavigComponent implements OnInit {
           alert("尝试次数太多或验证码过期,请重新注册或获取注册码!");
       }
     });
-  }
+}
 // check the intput box content in login and register
 // part autotily after it have been change
 checkinput(){
@@ -228,6 +235,37 @@ checkSignin(){
     worngnum ++;
   }else  $("#loginpasswordw").html("");
   return worngnum==0?enable:disable;
+}
+//use to make the cookie cant be undestant directly
+encryption(str : string){
+  var map = new Map();
+  for(var i=0;i<code1.length;i++){
+    map.set(code1[i],code2[i]);
+  }
+  var res = "";
+  for(i=0;i< str.length; i++){
+    if(map.get(str[i])==undefined) res+=str[i];
+    else res+=map.get(str[i]);
+  }
+  return res;
+}
+//restore the string that after encryption
+decode(str : string ){
+  var map = new Map();
+  for(var i=0;i<code1.length;i++){
+    map.set(code2[i],code1[i]);
+  }
+  var res = "";
+  for(i=0;i< str.length; i++){
+    if(map.get(str[i])==undefined) res+=str[i];
+    else res+=map.get(str[i]);
+  }
+  return res;
+}
+
+seecookie(){
+  this.setcookie();
+  this.getcookie();
 }
 
 }

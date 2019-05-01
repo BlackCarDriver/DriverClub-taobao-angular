@@ -15,7 +15,7 @@ export class ServerService {
 //本地开发配置
  //private addr: string  = "http://localhost:8090"
  //服务器配置
- private addr: string  = "https://www.blackcardriver.cn/server"
+  private addr: string  = "https://www.blackcardriver.cn/server"
   constructor( 
     private http: HttpClient
     ){ }
