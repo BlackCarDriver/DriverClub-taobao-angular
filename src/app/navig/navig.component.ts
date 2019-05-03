@@ -1,6 +1,6 @@
 import { Component, OnInit, Testability } from '@angular/core';
 import { ServerService } from '../server.service';
-import {  account1, account2} from '../struct';
+import {  account1, account2, UserShort} from '../struct';
 //  Property 'collapse' does not exist on type 'JQuery<HTMLElement>'....
 import * as bootstrap from 'bootstrap';
 //  import * as $ from 'jquery';
@@ -13,7 +13,7 @@ const namereg = /^[\u4e00-\u9fa5_a-zA-Z0-9]{2,15}$/;
 // regex of password
 const passwordreg = /^[a-zA-Z._0-9]{6,20}$/;
 // the regex of comfirm code
-const codereg = /^^[0-9]{6}$/;
+const codereg = /^[0-9]{6}$/;
 // the return state 
 let worng     = -1;
 let	scuess    = 1;
@@ -23,8 +23,7 @@ let unknowerr = -3;
 let repectname  = -20;
 let repectemail = -30;
 let othererror  = -99
-var code1 = "abcdefghijklmnopqrstuvwsyzABCDEFGHIJKLMNOPQRSTUVWSYZ_.0123456789@";
-var code2 = "!w@EeR#TrY$UtI%OyP^AuSD&FiG*HoJ(KpL)XaV_BsN+Md=f-g{hjnm};Wk?l>zx<c,vb";
+
 
 @Component({
   selector: 'app-navig',
@@ -34,7 +33,8 @@ var code2 = "!w@EeR#TrY$UtI%OyP^AuSD&FiG*HoJ(KpL)XaV_BsN+Md=f-g{hjnm};Wk?l>zx<c,
 export class NavigComponent implements OnInit {
   data1 = new account1();
   data2 = new account2();
-
+  username = "";
+  usermsg = new  UserShort();
   constructor(
     private server : ServerService
   ) { }
@@ -45,15 +45,23 @@ export class NavigComponent implements OnInit {
       $("#shortmsg").dropdown('toggle');
     })
     this.checkinput();
-    this.getcookie();
+    this.getloginmessage();
     this.setstate();
+    this.getusershort();
   }
-  // show sing/regist box when click singin/reginst
-  showsinginbox(){
+
+//get short message of user from server
+getusershort(){
+  this.server.GetUserShort().subscribe(result=>{this.usermsg=result;});
+}
+
+//show sing/regist box when click singin/reginst
+showsinginbox(){
     $("#exampleModal").modal('show');
-  }
-  // check and send username and userpassword to server
-  loging(){
+}
+
+// check and send username and userpassword to server
+loging(){
     this.data2.name = $("#loginname").val();
     this.data2.password = $("#loginpassword").val();
     this.server.Login(this.data2).subscribe(result=>{
@@ -68,37 +76,41 @@ export class NavigComponent implements OnInit {
           alert("发生未知错误,请稍后再试或反馈信息！")
         }
     })
+}
+//clear the cookie
+logout(){
+  if(confirm("你确定要清楚登录状态并退出此账号？")){
+    document.cookie =  "BCDCNCK=";
+    document.cookie = "driverlei=";
+    window.location.reload();
   }
-  //check the check box and choose to set username and password in cookie
-  setcookie(){
+}
+ //check the check box and choose to set username and password in cookie
+setcookie(){
       if($("#remember").is(':checked')==false){
          //erase the cookie if checkbox value is false 
-        document.cookie = "drivername= ";
-        document.cookie = "driverpasw= ";
+         document.cookie =  "BCDCNCK=";
         return;
       }
-      var Days = 10;  
+      var Days = 10;  //the time of days saving cookie
       var exp = new Date();
       var ck = $("#loginname").val()+"@"+$("#loginpassword").val();
-      var nap = this.encryption(ck);  
-      var un = this.encryption($("#loginname").val());
-     // console.log("set " +  ck + " into " + ck2);
+      var nap = this.server.encryption(ck);  
+      var un = this.server.encryption($("#loginname").val());
       exp.setTime(exp.getTime() + Days*24*3600*1000);  
       document.cookie = "BCDCNCK=" + nap + ";expires=" +exp.toUTCString();
       document.cookie = "driverlei=" + un + ";expires=" +exp.toUTCString();
-  }
+}
  
-//find username and password in the cookie and push the nin input box
-getcookie(){
-    //console.log(document.cookie);
-    var ck = this.getCookie("BCDCNCK")
-    var cks = this.decode(ck);
-   // console.log("reset " +  cks + " into " + ckss);
+//get username and password in the cookie and push the nin input box
+getloginmessage(){
+    var ck = this.server.getCookie("BCDCNCK")
+    if(ck=="")return;
+    var cks = this.server.decode(ck);
     var name = cks.split("@")[0]
     var psw = cks.split("@")[1]
     $("#loginname").val(name);
     $("#loginpassword").val(psw);
-   // console.log(name+"   "+psw);
 }
 
 // Send the Base message of register to Server receive the state, if the
@@ -238,46 +250,11 @@ checkSignin(){
   }else  $("#loginpasswordw").html("");
   return worngnum==0?enable:disable;
 }
-//use to make the cookie cant be undestant directly
-encryption(code : string){
-  var c=String.fromCharCode(code.charCodeAt(0)+code.length);
- for(var i=1;i<code.length;i++){      
-   c+=String.fromCharCode(code.charCodeAt(i)+code.charCodeAt(i-1));
- }   
- return escape(c);
-}
-//restore the string that after encryption
-decode(code : string ){
-  code=unescape(code);      
- var c=String.fromCharCode(code.charCodeAt(0)-code.length);      
- for(var i=1;i<code.length;i++){      
-  c+=String.fromCharCode(code.charCodeAt(i)-c.charCodeAt(i-1));      
- }      
- return c;  
-}
-//take username from cookie
-getusername(){
-  var name = this.getCookie("driverlei")
-  if (name=="")return "";
-  name = this.decode(name);
-  return name;
-}
-
-//get cookie by name
-getCookie(name:string){ 
-  var strCookie=document.cookie; 
-  var arrCookie=strCookie.split("; "); 
-  for(var i=0;i<arrCookie.length;i++){ 
-    var arr=arrCookie[i].split("="); 
-    if(arr[0]==name)return arr[1]; 
-  }
-  return ""; 
-}
 
 //if user have login then hide the login box, and show the user message box
 setstate(){
-  var name = this.getusername();
-  if(name != ""){
+  this.username = this.server.Getusername();
+  if(this.username != ""){
     $("#singin").addClass("hidden");
     $("#userbox").removeClass("hidden");
   }else{
@@ -286,9 +263,10 @@ setstate(){
   }
 }
 
+//call after click forget password tmeply
 seecookie(){
   this.setcookie();
-  this.getcookie();
+  this.getloginmessage();
 }
 
 

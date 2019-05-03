@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {  HomePageGoods , GoodsType,GoodsState,UploadGoods,PersonalExpend } from '../app/struct';
-import {  account1, account2} from '../app/struct';
+import {  account1, account2, UserShort} from '../app/struct';
 import { PersonalBase} from '../app/struct';
 import { post } from 'selenium-webdriver/http';
 @Injectable({
@@ -18,8 +18,52 @@ export class ServerService {
   // private addr: string  = "https://www.blackcardriver.cn/server"
   constructor( 
     private http: HttpClient
-    ){ }
-    
+  ){ }
+ 
+// ==========================  the following function is related to cookie ==================================  
+  
+//use to make the cookie cant be undestant directly
+encryption(code : string){
+  var c=String.fromCharCode(code.charCodeAt(0)+code.length);
+ for(var i=1;i<code.length;i++){      
+   c+=String.fromCharCode(code.charCodeAt(i)+code.charCodeAt(i-1));
+ }   
+ return escape(c);
+}
+//restore the string that after encryption
+decode(code : string ){
+  code=unescape(code);      
+ var c=String.fromCharCode(code.charCodeAt(0)-code.length);      
+ for(var i=1;i<code.length;i++){      
+  c+=String.fromCharCode(code.charCodeAt(i)-c.charCodeAt(i-1));      
+ }      
+ return c;  
+}
+//take username from cookie
+Getusername(){
+  var name = this.getCookie("driverlei")
+  if (name=="")return "";
+  name = this.decode(name);
+  return name;
+}
+//get cookie by cookie name
+getCookie(name:string){ 
+  var strCookie=document.cookie; 
+  var arrCookie=strCookie.split("; "); 
+  for(var i=0;i<arrCookie.length;i++){ 
+    var arr=arrCookie[i].split("="); 
+    if(arr[0]==name)return arr[1]; 
+  }
+  return ""; 
+}
+
+// =======================================================================================================  
+
+GetUserShort(){
+  var url = this.addr + "/getmsg/usershort";
+  return this.http.get<UserShort>(url).pipe();
+}
+
   GetHomePageGoods(tag : string, index : number){
       var url = this.addr + "/data";
       return this.http.get<HomePageGoods[]>(url).pipe();

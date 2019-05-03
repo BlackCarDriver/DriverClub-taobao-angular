@@ -22,23 +22,24 @@
           <li><a id="singin" (click)="showsinginbox()">登录/注册</a></li> 
         <li class="dropdown" id="userbox">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="user-toggle">
-            <span class="glyphicon glyphicon-user"></span>黑车司机<span class="caret"></span>
+            <span class="glyphicon glyphicon-user"></span> {{username}}<span class="caret"></span>
           </a>
           
           <ul class="dropdown-menu nopad"  id="shortmsg">
               <div class="user">
-                  <div class="headimg"></div>
-                  <h4>BlackCarDriver</h4>
+                  <img  src={{usermsg.imgurl}} class="headimg" >
+                  <h4><a routerLink="/personal">{{username}}</a></h4>
                   <div class="mesage">
                      <dl>
-                         <dt>我的等级：<a class="msgval">4</a></dt>
-                         <dt>我的积分：<a class="msgval">115</a></dt>
-                         <dt>我的消息：<a class="msgval">5</a></dt>
-                         <dt>我的商品：<a class="msgval">4</a></dt>
-                         <dt>我的收藏：<a class="msgval">4</a></dt>
+                         <dt>我的等级：<a class="msgval">{{usermsg.grade}}</a></dt>
+                         <dt>我的积分：<a class="msgval">{{usermsg.score}}</a></dt>
+                         <dt>未读消息：<a class="msgval">{{usermsg.message}}</a></dt>
+                         <dt>商品数量：<a class="msgval">{{usermsg.goods}}</a></dt>
+                         <dt>上次登录：<a class="msgval">{{usermsg.lastime}}</a></dt>
                      </dl>
                   </div>
-                  <a routerLink="/personal"><span class="glyphicon glyphicon-home" ></span> 个人中心</a>
+                  <!-- <a class="block" routerLink="/personal"><span class="glyphicon glyphicon-home" ></span> 个人中心</a> -->
+                  <a class="block" (click)="logout()"><span class="glyphicon glyphicon-log-out" ></span> 退出登录</a>
               </div>
           </ul>
           

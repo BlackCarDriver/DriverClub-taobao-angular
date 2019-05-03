@@ -18,6 +18,16 @@ export class GoodsType{
     typename :string = "";
     list:GoodSubType[];
 }
+//首页-个人信息下拉框
+export class UserShort{
+    imgurl :string = "";
+    grade : number = 0;
+    score : number = 0;
+    message:number = 0;
+    goods:number = 0;
+    lastime:string ="";
+}
+
 //商品状况，包括观看数，收藏数等
 export class GoodsState{
     see:number =0;
