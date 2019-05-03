@@ -46,6 +46,7 @@ export class NavigComponent implements OnInit {
     })
     this.checkinput();
     this.getcookie();
+    this.setstate();
   }
   // show sing/regist box when click singin/reginst
   showsinginbox(){
@@ -79,21 +80,22 @@ export class NavigComponent implements OnInit {
       var Days = 10;  
       var exp = new Date();
       var ck = $("#loginname").val()+"@"+$("#loginpassword").val();
-      var ck2 = this.encryption(ck);
+      var nap = this.encryption(ck);  
+      var un = this.encryption($("#loginname").val());
      // console.log("set " +  ck + " into " + ck2);
-      exp.setTime(exp.getTime() + Days*24*60*60*1000);  
-      document.cookie = "BCDCNCK=" + ck2 + ";expires=" +exp.toUTCString();
+      exp.setTime(exp.getTime() + Days*24*3600*1000);  
+      document.cookie = "BCDCNCK=" + nap + ";expires=" +exp.toUTCString();
+      document.cookie = "driverlei=" + un + ";expires=" +exp.toUTCString();
   }
  
 //find username and password in the cookie and push the nin input box
 getcookie(){
     //console.log(document.cookie);
-    var ck = document.cookie.match(/BCDCNCK=[^ ]*/);
-    var cks = ck[0].substring(8);
-    var ckss = this.decode(cks);
+    var ck = this.getCookie("BCDCNCK")
+    var cks = this.decode(ck);
    // console.log("reset " +  cks + " into " + ckss);
-    var name = ckss.split("@")[0]
-    var psw = ckss.split("@")[1]
+    var name = cks.split("@")[0]
+    var psw = cks.split("@")[1]
     $("#loginname").val(name);
     $("#loginpassword").val(psw);
    // console.log(name+"   "+psw);
@@ -237,36 +239,58 @@ checkSignin(){
   return worngnum==0?enable:disable;
 }
 //use to make the cookie cant be undestant directly
-encryption(str : string){
-  var map = new Map();
-  for(var i=0;i<code1.length;i++){
-    map.set(code1[i],code2[i]);
-  }
-  var res = "";
-  for(i=0;i< str.length; i++){
-    if(map.get(str[i])==undefined) res+=str[i];
-    else res+=map.get(str[i]);
-  }
-  return res;
+encryption(code : string){
+  var c=String.fromCharCode(code.charCodeAt(0)+code.length);
+ for(var i=1;i<code.length;i++){      
+   c+=String.fromCharCode(code.charCodeAt(i)+code.charCodeAt(i-1));
+ }   
+ return escape(c);
 }
 //restore the string that after encryption
-decode(str : string ){
-  var map = new Map();
-  for(var i=0;i<code1.length;i++){
-    map.set(code2[i],code1[i]);
+decode(code : string ){
+  code=unescape(code);      
+ var c=String.fromCharCode(code.charCodeAt(0)-code.length);      
+ for(var i=1;i<code.length;i++){      
+  c+=String.fromCharCode(code.charCodeAt(i)-c.charCodeAt(i-1));      
+ }      
+ return c;  
+}
+//take username from cookie
+getusername(){
+  var name = this.getCookie("driverlei")
+  if (name=="")return "";
+  name = this.decode(name);
+  return name;
+}
+
+//get cookie by name
+getCookie(name:string){ 
+  var strCookie=document.cookie; 
+  var arrCookie=strCookie.split("; "); 
+  for(var i=0;i<arrCookie.length;i++){ 
+    var arr=arrCookie[i].split("="); 
+    if(arr[0]==name)return arr[1]; 
   }
-  var res = "";
-  for(i=0;i< str.length; i++){
-    if(map.get(str[i])==undefined) res+=str[i];
-    else res+=map.get(str[i]);
+  return ""; 
+}
+
+//if user have login then hide the login box, and show the user message box
+setstate(){
+  var name = this.getusername();
+  if(name != ""){
+    $("#singin").addClass("hidden");
+    $("#userbox").removeClass("hidden");
+  }else{
+    $("#userbox").addClass("hidden");
+    $("#singin").removeClass("hidden");
   }
-  return res;
 }
 
 seecookie(){
   this.setcookie();
   this.getcookie();
 }
+
 
 }
 

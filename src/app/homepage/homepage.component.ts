@@ -36,6 +36,7 @@ export class HomepageComponent implements OnInit {
     $(".goods-area").mouseenter(function(){ $('.collapse').collapse('hide');})
     this.GetGoods();
     this.GetType();
+    this.set_mainbody_height();
   }
 
 
@@ -60,6 +61,10 @@ export class HomepageComponent implements OnInit {
       })
   }
 
+set_mainbody_height(){
+  var hight=  $(window).height();
+  $(".main-body").css("min-height",hight-240+"px")
+}
 
     
   collapse(id:string){

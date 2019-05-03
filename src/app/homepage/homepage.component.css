@@ -20,7 +20,9 @@
     min-width: 600px;
     top: 25px;
 }
-
+.main-body{
+    min-height: 400px;
+}
 .goodtype{
     width: 100%;
     height: auto;
@@ -46,6 +48,7 @@
     padding: 5px;
     box-shadow: 0 0 20px rgba(50,50,50,0.1);
     background-color: #fff;
+    margin: 0px 7%;
 }
 .goodrow{
     margin:5px;
