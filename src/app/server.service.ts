@@ -56,45 +56,46 @@ getCookie(name:string){
   }
   return ""; 
 }
-
+ 
 // =======================================================================================================  
 
-GetUserShort(){
+GetUserShort(name:string){
+  var postdata = {name : name};
   var url = this.addr + "/getmsg/usershort";
-  return this.http.get<UserShort>(url).pipe();
+  return this.http.post<UserShort>(url,postdata,{withCredentials: true});
 }
 
   GetHomePageGoods(tag : string, index : number){
       var url = this.addr + "/data";
-      return this.http.get<HomePageGoods[]>(url).pipe();
+      return this.http.get<HomePageGoods[]>(url);
   }
 
   GetHomePageType(){
     var url = this.addr + "/data2";
-    return this.http.get<GoodsType[]>(url).pipe();
+    return this.http.get<GoodsType[]>(url);
   }
 
   //get homepagegoods-struct data
   GetGoodsDetail_1(id:number){
       var url = this.addr+"/getmsg/goods/souce?tag=base&goodsid="+id;
-      return this.http.get<HomePageGoods>(url).pipe();
+      return this.http.get<HomePageGoods>(url);
   }
 
   GetGoodsDetail_2(id:number){
     var url = this.addr+"/getmsg/goods/souce?tag=state&goodsid="+id;
-      return this.http.get<GoodsState>(url).pipe();
+      return this.http.get<GoodsState>(url);
   }
 
   GetGoodsDetail_3(id:number){
     var url =  this.addr+"/getmsg/goods/souce?tag=text&goodsid="+id;
-    return this.http.get<string>(url).pipe();
+    return this.http.get<string>(url);
   }
   //upload goods message to server
   UploadGoods(goods:string){
     var postdata = {goodsdata:goods};
     var url = this.addr+"/upload/goods";
     return this.http.post<string>(
-      url,postdata).pipe();
+      url,postdata);
   }
   //upload head-img of goods to server and receive an imgurl
   UploadCover(username:string , img:any){
@@ -104,7 +105,7 @@ GetUserShort(){
     var url = this.addr + "/upload/cover"; 
     return this.http.post<string>(
       url,postdata
-    ).pipe();
+    );
   }     
  //upload head-img of user to server and receive an imgurl
  UploadHeadImg(username:string , img:any){
@@ -114,54 +115,54 @@ GetUserShort(){
     var url = this.addr + "/upload/headimg"; 
     return this.http.post<string>(
       url,postdata
-    ).pipe();
+    );
   }
 
   //upload goods describe to server host used by upload goods page
   UploadGoodsData(data:UploadGoods){
     var url = this.addr + "/upload/upload/goodsdata"; 
-    return this.http.post<number>(url,data).pipe();
+    return this.http.post<number>(url,data);
   }
   //get usermsg in chgmymsg page
   Getmymsg(id:string){
     var url = this.addr+"/getmsg/usermsg?id="+id;
-    return this.http.get<PersonalBase>(url).pipe();
+    return this.http.get<PersonalBase>(url);
   }
   //upload and updata base message of user
   UploadMyBaseMsg(data:PersonalBase){
     var url = this.addr + "/updata/mymessage/basemsg"; 
-    return this.http.post<number>(url,data).pipe();
+    return this.http.post<number>(url,data);
   }
   //upload and updata base message of user
   UploadContactMsg(data:PersonalBase){
       var url = this.addr + "/updata/mymessage/contactmsg"; 
-      return this.http.post<number>(url,data).pipe();
+      return this.http.post<number>(url,data);
   }
   //get message of personal in pereesonal page
   GetMyMsg(userid:string, key:string, tag:string){
       var url = this.addr + "/getmsg/personal/mymessage"; 
       var data = {tag:tag, id:userid, key:key};
-      return this.http.post<any>(url,data).pipe(); 
+      return this.http.post<any>(url,data); 
   }
   //get message of personal2 page
   GetOtherMsg(userid:string){
     var url = this.addr+"/getmsg/othermsg?id="+userid;
-    return this.http.get<PersonalExpend>(url).pipe();
+    return this.http.get<PersonalExpend>(url);
   }
   //login function used in naving
   Login(data:account2){
       var url = this.addr+"/signin";
-      return this.http.post<number>(url,data).pipe();
+      return this.http.post<number>(url,data,{withCredentials: true});
   }
   //send base message to server to conirm 
   ConfirmMsg(data:account1){
     var url = this.addr + "/register/confirmmsg";
-    return this.http.post<number>(url,data).pipe();
+    return this.http.post<number>(url,data);
   }
   //send confirm code to the server and receive the state
   ConfirmCode(data :account1){
     var url = this.addr + "/regeister/confirmcode";
-    return this.http.post<number>(url,data).pipe();
+    return this.http.post<number>(url,data);
   }
   
  

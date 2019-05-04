@@ -47,12 +47,11 @@ export class NavigComponent implements OnInit {
     this.checkinput();
     this.getloginmessage();
     this.setstate();
-    this.getusershort();
   }
 
 //get short message of user from server
 getusershort(){
-  this.server.GetUserShort().subscribe(result=>{this.usermsg=result;});
+  this.server.GetUserShort(this.username).subscribe(result=>{this.usermsg=result;});
 }
 
 //show sing/regist box when click singin/reginst
@@ -65,6 +64,7 @@ loging(){
     this.data2.name = $("#loginname").val();
     this.data2.password = $("#loginpassword").val();
     this.server.Login(this.data2).subscribe(result=>{
+        console.log(result);
         if (result==enable) {
           alert("登录成功！")
           this.setcookie();
@@ -251,12 +251,14 @@ checkSignin(){
   return worngnum==0?enable:disable;
 }
 
-//if user have login then hide the login box, and show the user message box
+//load username from cookie if it is not empty then
+//hide the login box, and show the user message box and require user short data
 setstate(){
   this.username = this.server.Getusername();
   if(this.username != ""){
     $("#singin").addClass("hidden");
     $("#userbox").removeClass("hidden");
+    this.getusershort()
   }else{
     $("#userbox").addClass("hidden");
     $("#singin").removeClass("hidden");
