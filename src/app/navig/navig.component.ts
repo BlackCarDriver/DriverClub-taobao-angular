@@ -279,7 +279,7 @@ getusershort(){
       this.server.setLocalStorge("dvleus",this.usermsg);
       this.server.setTimeTag("dvurst",120);
     });
-    this.changecode();
+   // this.changecode(); <====
   }else{  
     console.log("take usermsg form localhost");
     this.usermsg=this.server.getLocalStorge("dvleus");

@@ -15,9 +15,9 @@ export class ServerService {
 
   //important config !!!
 //本地开发配置
- private addr: string  = "http://localhost:8090"
+//  private addr: string  = "http://localhost:8090"
  //服务器配置
-  // private addr: string  = "https://www.blackcardriver.cn/server"
+  private addr: string  = "https://www.blackcardriver.cn/server"
   constructor( 
     private http: HttpClient
   ){ }
@@ -68,7 +68,7 @@ setTimeTag(key :string, second:number){
 //check if the tag is still in cookie, return false if cookie out of time
 checkTimeTag(key:string){
   var ck = this.getCookie(key);
-  if (ck=="") alert("time tag out of time ");
+  //if (ck=="") alert("time tag out of time ");
   if (ck=="") return false;
   return true;
 } 

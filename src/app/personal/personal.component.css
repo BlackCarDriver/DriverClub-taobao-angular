@@ -19,6 +19,11 @@
     box-sizing: border-box;
     display: block;
 }
+.head-sign{
+    position: relative;
+    color: #03A9F4;
+    top: 10px;
+}
 .msg1{
     height: 140px;
     margin: 6px 0px;
