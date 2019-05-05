@@ -23,7 +23,8 @@ let	disable   = -2;
 let unknowerr = -3;
 let repectname  = -20;
 let repectemail = -30;
-let othererror  = -99
+let othererror  = -99;
+let unsafe =-999;
 
 
 @Component({
@@ -66,6 +67,8 @@ loging(){
         if (result==enable) {
           alert("登录成功！")
           this.setcookie();
+          this.server.setTimeTag("dvurst",120);
+          window.location.reload();
         }else if (result==disable){ 
           alert("密码或账户名错误！")
         }else if (result==worng){
@@ -78,8 +81,7 @@ loging(){
 //clear the cookie
 logout(){
   if(confirm("你确定要清楚登录状态并退出此账号？")){
-    document.cookie =  "BCDCNCK=";
-    document.cookie = "driverlei=";
+    this.clearcookie();
     window.location.reload();
   }
 }
@@ -265,24 +267,51 @@ setstate(){
 
 //call after click forget password tmeply
 seecookie(){
-  this.setcookie();
-  this.getloginmessage();
+ 
 }
 
 //get short message of user from server
 getusershort(){
-  if( this.server.checkTimeTag("dvurst")==false ){  
+  if( this.server.checkTimeTag("dvurst")==false ){  //two minue pass
+    console.log("take usermsg form server");
     this.server.GetUserShort(this.username).subscribe(result=>{
       this.usermsg=result;
       this.server.setLocalStorge("dvleus",this.usermsg);
       this.server.setTimeTag("dvurst",120);
     });
-  }else{ 
+    this.changecode();
+  }else{  
+    console.log("take usermsg form localhost");
     this.usermsg=this.server.getLocalStorge("dvleus");
   }
+  console.log("usermsg : ",this.usermsg);
 }
 
+//clear all cookie
+clearcookie(){
+  var clstr = new Date();
+  clstr.setTime(clstr.getTime() + 0); 
+  document.cookie = "BCDCNCK= ;expires="+clstr //name and password
+  document.cookie = "driverlei= ;expires="+clstr; //username
+  document.cookie = "dvurst= ;expires="+clstr;  //time tag
+}
 
+//change another vertify code
+changecode(){
+  var na = this.server.Getusername();
+  if (na=="") return;
+  this.server.ChangeComfirmCode(na).subscribe(result=>{
+      if(result==worng){
+        alert("发现你的账户不安全，请重新登录！");
+        this.clearcookie();
+        window.location.reload();
+      }else if (result==scuess){
+        console.log("change vertify code scuess!");
+      }else{
+        console.log("error happen in changecode() !");
+      }
+  })
+}
 
 }
 

@@ -61,13 +61,14 @@ getCookie(name:string){
 //save a cookie as a time tag
 setTimeTag(key :string, second:number){
   var exp = new Date();
-  exp.setTime(exp.getTime() + second*1000 );  //two minute  
-  var ck = key+"=have;";
+  exp.setTime(exp.getTime() + 1000 * second );  //two minute  
+  var ck = key+"=have;expires=";
   document.cookie = ck + exp.toUTCString();
 }
-//check if the tag is still in cookie 
+//check if the tag is still in cookie, return false if cookie out of time
 checkTimeTag(key:string){
   var ck = this.getCookie(key);
+  if (ck=="") alert("time tag out of time ");
   if (ck=="") return false;
   return true;
 } 
@@ -81,7 +82,14 @@ getLocalStorge(key:string){
   var jsdata = window.localStorage[key];
   return JSON.parse(jsdata);
 }
+
 // =======================================================================================================  
+  
+ChangeComfirmCode(na :string){
+  var data = {name : na};
+  var url = this.addr + "/getmsg/usershort/cgcfcode";
+  return this.http.post<number>(url, data,{withCredentials: true});
+}
 
 GetUserShort(name:string){
   var postdata = {name : name};
@@ -188,7 +196,6 @@ GetUserShort(name:string){
     var url = this.addr + "/regeister/confirmcode";
     return this.http.post<number>(url,data);
   }
-  
- 
+
 
 }
