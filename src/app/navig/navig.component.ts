@@ -1,6 +1,7 @@
 import { Component, OnInit, Testability } from '@angular/core';
 import { ServerService } from '../server.service';
 import {  account1, account2, UserShort} from '../struct';
+// import { LocalStorage } from '../localstorge';
 //  Property 'collapse' does not exist on type 'JQuery<HTMLElement>'....
 import * as bootstrap from 'bootstrap';
 //  import * as $ from 'jquery';
@@ -36,6 +37,7 @@ export class NavigComponent implements OnInit {
   username = "";
   usermsg = new  UserShort();
   constructor(
+    // private localdata: LocalStorage,
     private server : ServerService
   ) { }
 
@@ -49,10 +51,6 @@ export class NavigComponent implements OnInit {
     this.setstate();
   }
 
-//get short message of user from server
-getusershort(){
-  this.server.GetUserShort(this.username).subscribe(result=>{this.usermsg=result;});
-}
 
 //show sing/regist box when click singin/reginst
 showsinginbox(){
@@ -270,6 +268,20 @@ seecookie(){
   this.setcookie();
   this.getloginmessage();
 }
+
+//get short message of user from server
+getusershort(){
+  if( this.server.checkTimeTag("dvurst")==false ){  
+    this.server.GetUserShort(this.username).subscribe(result=>{
+      this.usermsg=result;
+      this.server.setLocalStorge("dvleus",this.usermsg);
+      this.server.setTimeTag("dvurst",120);
+    });
+  }else{ 
+    this.usermsg=this.server.getLocalStorge("dvleus");
+  }
+}
+
 
 
 }

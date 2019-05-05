@@ -5,6 +5,8 @@ import {  HomePageGoods , GoodsType,GoodsState,UploadGoods,PersonalExpend } from
 import {  account1, account2, UserShort} from '../app/struct';
 import { PersonalBase} from '../app/struct';
 import { post } from 'selenium-webdriver/http';
+import { JsonpCallbackContext } from '@angular/common/http/src/jsonp';
+// import { ConsoleReporter } from 'jasmine';
 @Injectable({
   providedIn: 'root'
 })
@@ -56,7 +58,29 @@ getCookie(name:string){
   }
   return ""; 
 }
- 
+//save a cookie as a time tag
+setTimeTag(key :string, second:number){
+  var exp = new Date();
+  exp.setTime(exp.getTime() + second*1000 );  //two minute  
+  var ck = key+"=have;";
+  document.cookie = ck + exp.toUTCString();
+}
+//check if the tag is still in cookie 
+checkTimeTag(key:string){
+  var ck = this.getCookie(key);
+  if (ck=="") return false;
+  return true;
+} 
+//save an object in localstroge by json format
+setLocalStorge(key:string, data :any){
+  var jsdata = JSON.stringify(data);
+  window.localStorage[key] = jsdata;
+}
+//take object after json.parse from localstroge by name
+getLocalStorge(key:string){
+  var jsdata = window.localStorage[key];
+  return JSON.parse(jsdata);
+}
 // =======================================================================================================  
 
 GetUserShort(name:string){
