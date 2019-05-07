@@ -62,6 +62,10 @@ showsinginbox(){
 loging(){
     this.data2.name = $("#loginname").val();
     this.data2.password = $("#loginpassword").val();
+    if(this.checkLogin()!=true){
+      alert("请正确输入信息");
+      return;
+    }
     this.server.Login(this.data2).subscribe(result=>{
         console.log(result);
         if (result==enable) {
@@ -235,6 +239,17 @@ checkRegister(){
   }else  $("#regemailw").html("");
 
   return worngnum==0?enable:disable;
+}
+//check the input box of login before send the data to server
+checkLogin(){
+  let worngnum = 0;
+    if(namereg.test( $("#loginname").val())==false){
+        worngnum++;
+    }
+    if( passwordreg.test( $("#loginpassword").val())==false ){
+      worngnum++;
+    }
+    return worngnum==0;
 }
 // initiatly checke the login input data before send to server 
 checkSignin(){

@@ -15,15 +15,15 @@ export class ServerService {
 
   //important config !!!
 //本地开发配置
-//  private addr: string  = "http://localhost:8090"
+ private addr: string  = "http://localhost:8090"
  //服务器配置
-  private addr: string  = "https://www.blackcardriver.cn/server"
+  // private addr: string  = "https://www.blackcardriver.cn/server"
   constructor( 
     private http: HttpClient
   ){ }
  
 // ==========================  the following function is related to cookie ==================================  
-  
+
 //use to make the cookie cant be undestant directly
 encryption(code : string){
   var c=String.fromCharCode(code.charCodeAt(0)+code.length);
@@ -171,9 +171,9 @@ GetUserShort(name:string){
       return this.http.post<number>(url,data);
   }
   //get message of personal in pereesonal page
-  GetMyMsg(userid:string, key:string, tag:string){
+  GetMyMsg(username:string, key:string, tag:string){
       var url = this.addr + "/getmsg/personal/mymessage"; 
-      var data = {tag:tag, id:userid, key:key};
+      var data = {tag:tag, name:username, key:key};
       return this.http.post<any>(url,data); 
   }
   //get message of personal2 page

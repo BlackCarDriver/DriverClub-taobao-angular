@@ -63,6 +63,7 @@ export class PersonalBase{
 //个人主页里面需要展示的详细信息
 export class PersonalExpend{
     //基本信息和联系信息
+    imgurl:string="";
     username:string= "";
     userid:string = "";
     usersex:string = "";
